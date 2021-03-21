@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>fb85c669</title>
+  <style>
+    html {
+      line-height: 1.5;
+      font-family: Georgia, serif;
+      font-size: 20px;
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      word-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 1em;
+      }
+    }
+    @media print {
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, 'Lucida Console', Consolas, monospace;
+      font-size: 85%;
+      margin: 0;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      background-color: #1a1a1a;
+      border: none;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    span.underline{text-decoration: underline;}
+    div.column{display: inline-block; vertical-align: top; width: 50%;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    ul.task-list{list-style: none;}
+    pre > code.sourceCode { white-space: pre; position: relative; }
+    pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+    pre > code.sourceCode > span:empty { height: 1.2em; }
+    code.sourceCode > span { color: inherit; text-decoration: inherit; }
+    div.sourceCode { margin: 1em 0; }
+    pre.sourceCode { margin: 0; }
+    @media screen {
+    div.sourceCode { overflow: auto; }
+    }
+    @media print {
+    pre > code.sourceCode { white-space: pre-wrap; }
+    pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+    }
+    pre.numberSource code
+      { counter-reset: source-line 0; }
+    pre.numberSource code > span
+      { position: relative; left: -4em; counter-increment: source-line; }
+    pre.numberSource code > span > a:first-child::before
+      { content: counter(source-line);
+        position: relative; left: -1em; text-align: right; vertical-align: baseline;
+        border: none; display: inline-block;
+        -webkit-touch-callout: none; -webkit-user-select: none;
+        -khtml-user-select: none; -moz-user-select: none;
+        -ms-user-select: none; user-select: none;
+        padding: 0 4px; width: 4em;
+        color: #aaaaaa;
+      }
+    pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+    div.sourceCode
+      {   }
+    @media screen {
+    pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+    }
+    code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+    code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+    code span.at { color: #7d9029; } /* Attribute */
+    code span.bn { color: #40a070; } /* BaseN */
+    code span.bu { } /* BuiltIn */
+    code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+    code span.ch { color: #4070a0; } /* Char */
+    code span.cn { color: #880000; } /* Constant */
+    code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+    code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+    code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+    code span.dt { color: #902000; } /* DataType */
+    code span.dv { color: #40a070; } /* DecVal */
+    code span.er { color: #ff0000; font-weight: bold; } /* Error */
+    code span.ex { } /* Extension */
+    code span.fl { color: #40a070; } /* Float */
+    code span.fu { color: #06287e; } /* Function */
+    code span.im { } /* Import */
+    code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+    code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+    code span.op { color: #666666; } /* Operator */
+    code span.ot { color: #007020; } /* Other */
+    code span.pp { color: #bc7a00; } /* Preprocessor */
+    code span.sc { color: #4070a0; } /* SpecialChar */
+    code span.ss { color: #bb6688; } /* SpecialString */
+    code span.st { color: #4070a0; } /* String */
+    code span.va { color: #19177c; } /* Variable */
+    code span.vs { color: #4070a0; } /* VerbatimString */
+    code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+    .display.math{display: block; text-align: center; margin: 0.5rem auto;}
+  </style>
+  <!--[if lt IE 9]>
+    <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.7.3/html5shiv-printshiv.min.js"></script>
+  <![endif]-->
+  <link rel="stylesheet" href="splendor.css">
+</head>
+<body>
+<h1 id="precise-typing-implies-functional-programming">Precise Typing Implies Functional Programming</h1>
+<p>Functional programming (FP) is, similarly to other programming paradigms, quite difficult to pin down. Instead of having a clear definition, these characteristics are commonly associated with functional style:</p>
+<ul>
+<li>Functions are treated as first-class citizens. They are frequently passed as arguments to other functions.</li>
+<li>Immutable values are preferred over mutable values.</li>
+<li>Functions are pure. They are deterministic and side-effect-free, similarly to mathematical functions.</li>
+<li>Algebraic structures are used as abstractions.</li>
+</ul>
+<p>Seeing the value of these characteristics is not easy, however. Each of them must be argued separately, and it can be difficult to make a solid case for their utility, especially to a person who is used to programming in a different paradigm. How can we convince fellow developers that all the functional weirdness is warranted? I will try to present an unified argument for all the FP characteristics in this article.</p>
+<!--
+* Why should I use first-class functions rather than first-class objects?
+* Isn't function composition unnecessarily cryptic in comparison to simple sequential statements?
+* Purity is valuable, but aren't side-effects sometimes more natural?
+-->
+<!-- Functional programming arises in a number of ways. I will explore, how functional programming follows from strong typing. This illustrates nicely why various FP concepts are useful, as they help us leverage the type system in an optimal way. -->
+<p>It turns out that all of the above points can be derived from a single design rule.</p>
+<!-- There is an underlying characteristic hidden beneath the usual functional programming patterns. The characteristics above can be seen merely as effects of this characteristic, and its value is rather self-evident. Without further ado, here it is: -->
+<p style="font-weight: bold; font-size: larger; padding: 0.5rem; margin: 1rem; border: 1px solid black; text-align: center;">
+Functional programming is the consequence of using types to precisely encode program semantics.
+</p>
+<p>If you agree that type systems should be used to their full potential, functional programming is not much of a paradigm - it is rather just a natural consequence. And it is quite uncontroversial to see that type systems should be wielded efficiently to prevent bugs and maximize correctness. That’s, after all, precisely what they were designed to do in the first place.</p>
+<p>Note that the above statement is an implication:</p>
+<p><span class="math display">precise types ⇒ functional programming.</span></p>
+<p>The converse isn’t true, as FP is also possible in weakly-typed languages:</p>
+<p><span class="math display">functional programming ⇏ precise types.</span></p>
+<!-- Indeed, one can arrive at functional programming from multiple directions, as is the case with many other good ideas. -->
+<p>Given that the value of precise typing is self-evident, I will focus on arguing that FP indeed follows from precise typing in the following sections.</p>
+<h2 id="types-of-values">Types of Values</h2>
+<p>Types define (among other things) the set of all possible values a variable can take. Precise types constrain variables to only semantically valid values. Types should, ideally, contain no semantically invalid values.</p>
+<p>Consider, for example, nullable types. They are convenient to have, and many languages make them nearly universal. But this universality brings impreciseness. While nullable types are useful for returning <em>from</em> functions, they are mostly wrong for passing <em>into</em> functions. Every function has to correctly handle each of its arguments possibly being null, and failure to do so often results in <code>NullPointerException</code> or equivalent. You have to correctly propagate through your program an extra failure condition for each variable whether it makes sense or not.</p>
+<p>We can get rid of this problem by making only some types nullable, perhaps using an <code>Optional&lt;Type&gt;</code>.</p>
+<p>Similar considerations arise for values which may be one of multiple things. An example may be modeling remote data which must be fetched from a server. Remote data may be in multiple mutually-exclusive states:</p>
+<ul>
+<li>Data was not yet requested.</li>
+<li>Data was requested, but we did not get a response yet.</li>
+<li>There was an error on request.</li>
+<li>Data was successfully fetched.</li>
+</ul>
+<p>This can be perfectly captured as an algebraic data type (ADT), for example, in Haskell:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="kw">data</span> <span class="dt">RemoteData</span> err res</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a>  <span class="ot">=</span> <span class="dt">NotAsked</span></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> <span class="dt">Loading</span></span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> <span class="dt">Failure</span> err</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a>  <span class="op">|</span> <span class="dt">Success</span> res</span></code></pre></div>
+<p>There are no extra values here, and every <code>RemoteData</code> variable you construct is guaranteed to be valid. You could simulate <code>RemoteData</code> without ADTs, but it would always contain invalid values. Those could be hidden inside a module/class with a safe interface, but this just shifts responsibility to the class implementation. Here is <a href="https://lexi-lambda.github.io/blog/2020/11/01/names-are-not-type-safety/">a great article</a> detailing why this approach is suboptimal.</p>
+<p>In conclusion, algebraic data types, one of the characteristics of FP style, are needed to precisely model value semantics.</p>
+<h2 id="functions">Functions</h2>
+<p>Next, let’s look at functions. Most languages specify the means by which a function can interact with the rest of the program via <strong>function signature</strong>, consisting of <strong>argument types</strong> and the <strong>return type</strong>. Argument types specify the prerequisites, and the return type specifies the effects (results) of the function.</p>
+<p>However, arguments and the return value don’t specify function interface precisely. Functions can also do various side-effects not captured by the signature. They can:</p>
+<ul>
+<li>Access global variables, static variables, or instance variables</li>
+<li>Access external resources, such as PRNG state, network state, file IO, console, etc.</li>
+<li>Mutate arguments</li>
+<li>Throw exceptions</li>
+</ul>
+<p>These are interactions that must be well documented and kept in mind by the programmers. They may create long-range order dependencies, which the type system doesn’t know about. If side effects are not used sparingly, function signatures are not very descriptive.</p>
+<p>We can increase type precision by getting rid of these escape hatches. Without them, function results are observable only through the return value, and the function can’t access anything but its arguments. This makes type signatures much more expressive. Functions like this are called <strong>pure</strong>, and they are used pervasively in FP style.</p>
+<p>Limiting ourselves to only pure functions may seem very… limiting. Obviously, side-effects exist because they are practical. How can we hope to do anything useful using just pure functions? Without diving deeper into this topic, rest assured that people write programs in languages with <em>only</em> pure functions, and it works just fine. The drawback is the steep learning curve, but it is only an upfront cost, paid once in a lifetime.</p>
+<p>Purely functional IO requires pervasive use of higher-order functions, which is another FP characteristic.</p>
+<h3 id="mutability">Mutability</h3>
+<p>If we limit ourselves to only pure functions, mutability is no longer very useful. Functions can’t access anything but their arguments, and those can’t be modified. This means that mutability is confined only to function bodies, where it can serve as a convenience. Some languages use function calls instead of <code>for</code> and <code>while</code> loops, which supersedes the few remaining use-cases for mutable values.</p>
+<h2 id="patterns">Patterns</h2>
+<p>Now we have precise value and function types, but that is not enough. We also need a way to specify relations between them. Consider, for example, a sorting algorithm. It consists of a function <code>sort</code> together with a less-or-equal operator <code>leq</code>:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true" tabindex="-1"></a>sort(Array<span class="op">&lt;</span>T<span class="op">&gt;</span>) <span class="op">-&gt;</span> Array<span class="op">&lt;</span>T<span class="op">&gt;</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true" tabindex="-1"></a>leq(T<span class="op">,</span> T) <span class="op">-&gt;</span> Bool <span class="co">// less or equal, ≤</span></span></code></pre></div>
+<p>The correctness of <code>sort</code> depends crucially on the semantics of <code>leq</code>: it can’t be any old function, it must be a <a href="https://en.wikipedia.org/wiki/Total_order">total order</a>. It must satisfy the following relations:</p>
+<ul>
+<li>Antisymmetry. If <code>a ≤ b</code> and <code>b ≤ a</code> then <code>a = b</code>.</li>
+<li>Transitivity. If <code>a ≤ b</code> and <code>b ≤ c</code> then <code>a ≤ c</code>.</li>
+<li>Connexity. <code>a ≤ b</code> or <code>b ≤ a</code>.</li>
+</ul>
+<p>If some of these are not satisfied, <code>sort</code> behaviour may not be what we expect:</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode python"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a><span class="op">&gt;&gt;&gt;</span> <span class="bu">sorted</span>([<span class="dv">4</span>, <span class="bu">float</span>(<span class="st">&#39;nan&#39;</span>), <span class="dv">2</span>, <span class="dv">1</span>])</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>[<span class="dv">4</span>, nan, <span class="dv">1</span>, <span class="dv">2</span>]</span></code></pre></div>
+<p>This result is clearly incorrect, and it is because the <code>leq</code> is not a total order over IEEE 754 floats; it doesn’t satisfy connexity. We need a way to encode this requirement into the type system, otherwise these kinds of bugs can’t be prevented. This is what typeclasses/traits are used for. In Haskell:</p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="fu">sort</span><span class="ot"> ::</span> <span class="dt">Ord</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> [a]</span></code></pre></div>
+<p>The <code>Ord</code> constraint tells us that we have an <code>≤</code> which forms a total order over <code>a</code>. In Rust, there is an equivalent pattern, this time in-place:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode rust"><code class="sourceCode rust"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true" tabindex="-1"></a><span class="kw">impl</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="dt">Vec</span><span class="op">&lt;</span>T<span class="op">&gt;</span> <span class="op">{</span></span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true" tabindex="-1"></a>    <span class="kw">pub</span> <span class="kw">fn</span> sort(<span class="op">&amp;</span><span class="kw">mut</span> <span class="kw">self</span>) <span class="kw">where</span> T<span class="op">:</span> <span class="bu">Ord</span><span class="op">,</span></span>
+<span id="cb5-3"><a href="#cb5-3" aria-hidden="true" tabindex="-1"></a><span class="op">}</span></span></code></pre></div>
+<p>And indeed, <code>Ord</code> is not implemented for floats, which prevents the patological case above. Users of <code>sort</code> and orderable types can rest assured that they can’t mess up the composition.</p>
+<p>For a different example, suppose we want to make a parralel array sum function. This function splits the array into N sub-arrays, sums up each one in a thread, and finally sums the sub-results together. To get the same result regardless of the number of sub-arrays, our sum operation must be associative. We can express this by using the <code>Semigroup a</code> constraint which provides us with an associative operation over <code>a</code>.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode haskell"><code class="sourceCode haskell"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="ot">parallelSum ::</span> <span class="dt">Semigroup</span> a <span class="ot">=&gt;</span> [a] <span class="ot">-&gt;</span> a</span></code></pre></div>
+<p>This pattern of having lawful structures is ubiquitous in functional programming, and there are many well-known algebraic structures. In OOP languages, interfaces or classes could be used to the same effect, however, they have <a href="https://stackoverflow.com/a/8123973">many restrictions</a> which make them much less useful.</p>
+<h2 id="other-options">Other Options</h2>
+<p>We could achieve some of our goals by using other language features, not just types. For example, nullable types are sometimes a language primitive (Kotlin, Swift, SQL). Errors can be signalized using exceptions instead of return types (Java, C++). I would argue that both of these approaches are simultaneously more complex and less powerful than a type-based system. I will not go in depth on this topic, however, since this article is long enough as it is.</p>
+<p>Mutable output arguments can be used in addition to return values. I don’t see any problem with this alternative, as long as these arguments are explicitly marked.</p>
+<h2 id="notes-on-oop">Notes on OOP</h2>
+<p>Object oriented programming encourages both imprecise data types, and non-descriptive functional signatures.</p>
+<p><strong>Imprecise data types</strong> arise because classes frequently contain <strong>many</strong> fields. This is caused by:</p>
+<ul>
+<li>OOP mental model of (thing == instance) is often not granular enough.</li>
+<li>Uninitialized states <a href="https://250bpm.com/blog:4/">are sometimes unavoidable</a>.</li>
+<li>References to other classes bring in their fields too.</li>
+<li>Nullability pervasiveness in mainstream OOP languages.</li>
+<li>Inheritance brings unnecessary baggage.</li>
+</ul>
+<p>Often, tons invalid states are possible in classes. Keeping state consistent is a <strong>major</strong> challenge.</p>
+<p><strong>Non-descriptive functional signatures</strong> are given by the fact that functions have blanket access to instance variables. This is the same as passing in a bunch of mostly unnecessary arguments, which goes against descriptive function types. Worse, functions may work mainly through instance state manipulation instead of through return values. This leads to non-descriptive types, and by trying to compensate, to overly descriptive names. Ever seen code like this?</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode java"><code class="sourceCode java"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">void</span> <span class="fu">includeSetupAndTeardownPages</span>() <span class="kw">throws</span> <span class="bu">Exception</span> {</span>
+<span id="cb7-2"><a href="#cb7-2" aria-hidden="true" tabindex="-1"></a>    <span class="fu">includeSetupPages</span>();</span>
+<span id="cb7-3"><a href="#cb7-3" aria-hidden="true" tabindex="-1"></a>    <span class="fu">includePageContent</span>();</span>
+<span id="cb7-4"><a href="#cb7-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">includeTeardownPages</span>();</span>
+<span id="cb7-5"><a href="#cb7-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">updatePageContent</span>();</span>
+<span id="cb7-6"><a href="#cb7-6" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-7"><a href="#cb7-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-8"><a href="#cb7-8" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">void</span> <span class="fu">includeSetupPages</span>() <span class="kw">throws</span> <span class="bu">Exception</span> {</span>
+<span id="cb7-9"><a href="#cb7-9" aria-hidden="true" tabindex="-1"></a>    <span class="kw">if</span> (isSuite)</span>
+<span id="cb7-10"><a href="#cb7-10" aria-hidden="true" tabindex="-1"></a>      <span class="fu">includeSuiteSetupPage</span>();</span>
+<span id="cb7-11"><a href="#cb7-11" aria-hidden="true" tabindex="-1"></a>    <span class="fu">includeSetupPage</span>();</span>
+<span id="cb7-12"><a href="#cb7-12" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-13"><a href="#cb7-13" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-14"><a href="#cb7-14" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">void</span> <span class="fu">includeSuiteSetupPage</span>() <span class="kw">throws</span> <span class="bu">Exception</span> {</span>
+<span id="cb7-15"><a href="#cb7-15" aria-hidden="true" tabindex="-1"></a>    <span class="fu">include</span>(SuiteResponder.<span class="fu">SUITE_SETUP_NAME</span>, <span class="st">&quot;-setup&quot;</span>);</span>
+<span id="cb7-16"><a href="#cb7-16" aria-hidden="true" tabindex="-1"></a>}</span>
+<span id="cb7-17"><a href="#cb7-17" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb7-18"><a href="#cb7-18" aria-hidden="true" tabindex="-1"></a><span class="kw">private</span> <span class="dt">void</span> <span class="fu">includeSetupPage</span>() <span class="kw">throws</span> <span class="bu">Exception</span> {</span>
+<span id="cb7-19"><a href="#cb7-19" aria-hidden="true" tabindex="-1"></a>    <span class="fu">include</span>(<span class="st">&quot;SetUp&quot;</span>, <span class="st">&quot;-setup&quot;</span>);</span>
+<span id="cb7-20"><a href="#cb7-20" aria-hidden="true" tabindex="-1"></a>}</span></code></pre></div>
+<p>Notice how function signatures are devoid of any information - every function has the exact same signature! Any of the statements can be duplicated, omitted, or rearranged without the compiler complaining. Control flow is fully implicit and the type system is all but useless. Luckily, this hardcore OOP style <a href="https://qntm.org/clean">is on the decline</a>.</p>
+<p>In a purely functional setting, this can’t happen. Any pure function which returns <code>void</code> is useless since it conveys no information in its return value. As a rule of thumb, even in non purely functional setting, <code>void</code>-returning functions should rarely be used.</p>
+<h2 id="conclusion">Conclusion</h2>
+<p>We have seen how the characteristics of functional programming arise from insisting on descriptive types. Using the type system to its full potential decreases the number of bugs and allows one write code much more confidently.</p>
+<p>The main take-away is that functional programming does one thing better than other approaches: type system utilization. This doesn’t mean that FP is overall better for software development. Perhaps in the process of being pedantic with types we arrived at a paradigm that is too impractical for everyday use.</p>
+<p>Showing that this is not the case, and showing how effectful systems can be written in a purely functional style may be the topic of a future blog post.</p>
+<!-- We will not consider argument names and function name as parts of function signature - their correspondence to semantics can't be checked by the compiler. Let me write down an example in C++:
+
+```c++
+int f(string a);
+```
+
+I replaced the names with placeholder letters since they are not a part of the signature. We can test how precise our types are by trying to guess what the function does and how it can be used. Here are some possibilities:
+
+* `f` counts the number of bytes in `a`.
+* `f` parses a `string` into an `int`. It throws an exception if `string` contains non-digit characters.
+* `f` opens a file `a`, and returns file size. It throws if the file doesn't exist.
+* `f` replaces all the non-ASCII characters in `a` with placeholders. It returns the number of replacements. -->
+<!--
+We can see that function signature is only a part of the function interface. Functions can do **so much more** than just returning a value. Based on function signature alone, we can't tell whether a function is doing any funny business under our feet, or how to correctly use it. Can we memoize the function? Can we safely call the function twice in parallel? Do we need to conjure up any external environment if we want to use the function in a different project? This information is not represented in the function signature. We have to inspect the innards, and the type checker can't prove that our analysis is correct.
+
+Let's try to increase the precision of function signatures. We already have all the parts we need: a way to specify prerequisites (argument types), and a way to specify effects (return type). We just need to make these the **only** prerequisited and effects - get rid of escape hatches. We need to make our functions pure.
+
+Pure functions are very pleasant to work with. They depend only on their arguments so they are easily tested and reasoned about. Their effects are constrained to the return value, so their execution is otherwise unobservable. Independent functions can be parallelized, re-ordered, or executed at arbitrary times without changing semantics. Flow of information (or lack thereof) is reified as argument passing.
+
+## Methods and OOP
+
+Class methods^[also known as instance functions], often suffer from very non-descriptive signatures, but the problem is opposite to what we saw before. Instead of failing to specify some prerequisites as arguments, they specify *more than they need*. Methods can access all the instance variables. This gives them a large surface they can work on, which often leads to non-obvious information flow, where the principal function effects are not their return values, but rather mutations of object state. With large objects, the number of possible states grow exponentially, and the probability that all of them are handled correctly by all functions is low.
+
+TODO: example of an OOP interface which is hard to follow. Perhaps from Clean Code, or something.
+
+## Values
+
+For our intents and purposes, values are just entities that can be passed to and returned from functions. To pin down function semantics precisely, values need to be precise too. Ideally, they would specify what can be passed into a function or returned from one as tightly as possible.
+
+* Tightly specifying arguments minimizes the number of values that the function needs to correctly handle
+* Tightly specifying return values ensures that downstream functions don't need to correctly handle as many values.
+
+Consider languages in which variables can be `null`. For each function argument, there is an extra `null` that needs to be considered, even if there is no valid action that can be taken for such an argument. Specifying only some values as nullable, for example using `optional<T>`, allows for tighter specifications.
+
+If exceptions can be thrown from all functions, then non-throwing functions can't be marked as such. It may be better to use checked exceptions, or to use algebraic data types to explicitly mark functions which can fail, such as Rust's `Result<Ok, Err>`.
+
+If the principle of tight value types is taken seriously, it may even lead to all functions being infallible, as is the case with Elm or PureScript. In these languages, there are no runtime exceptions, with some caveats. The compiler checks that all possible values are handled by each function.
+
+<!--
+To sum up, function prereqisites are arguments *and some other stuff.* Function effects are the return value *and some other stuff.* If we want to make the type system capture function semantics precisely, we must get rid of the escape hatches: either by convention, or by language restrictions. We move towards the functional programming approach of pure functions and no side-effects.
+ -->
+<!--
+ ## Patterns
+
+ Capturing the interfaces of groups of functions, rather than single functions.
+
+ Typeclasses, sets, lattices, monoids, etc.
+
+ map, filter, reduce
+
+## Making Function Signatures Precise
+
+Functional programming allows you to.
+
+Is it practical? Haskell does that. People write software in Haskell. QED.
+
+Is it more work? Yes, there is much more lifting going on. Stuff gets more abstract. But this is an upfront cost - a steeper learning curve.
+
+What do we win? Since functions are pure, we get order independence. We can freely rearrange them, as long as there are no dependencies.
+
+
+## Types
+
+We used types in the previous paragraphs to constrain public interface of functions. We will now look at how types can be used to model function semantics as precisely as possible.
+
+For data structures, honesty with types implies tight domain modelling. Facts about data should be encoded in types as precisely as possible. This implies:
+
+- making invalid states unrepresentable
+
+
+
+## Where to stop?
+
+Designing software functionally is extra effort compared to imperative programming. Religiously following the FP paradigm may have diminishing returns, which would mean that there is a point where the extra effort is no longer justified by the benefits. Is there such a point?
+
+The extra effort manifests in three ways:
+
+1. Learing curve. It is hard to learn functional paradigm's more exotic patterns. This is the cost a developer pays only once in their life. Also known as "becoming a better programmer".
+2. Planning. Modelling domains precisely with types requires some upfront planning. You may have to sit down with a pen and paper and try to understand your task as well as possible before you start writing code.
+3. Day-to-day programming overhead. This is probably negligible.
+
+Perhaps unintuitively, pinning your domain down with precise types doesn't decrease flexibility. Rather, types allow you to encode the requirements of your functions, but nothing extra. Functional code can be amazingly expressive. -->
+<h2 id="see-also">See Also</h2>
+<ul>
+<li>[[83d4b42b|OOP Deconstruction]]</li>
+<li>[[79be9c2a|OOP Notes]]</li>
+</ul>
+</body>
+</html>
