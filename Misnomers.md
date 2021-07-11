@@ -6,7 +6,7 @@ tags:
 
 # Misnomers
 
-The Big Bang | The Everywhere Stretch
-Habitable Zone | Liquid Water Zone
-Dark Matter | Unaccounted Gravity?
-Poločas rozpadu/přeměny | Čas polorozpadu/polopřeměny
+* The Big Bang | The Everywhere Stretch
+* Habitable Zone | Liquid Water Zone
+* Dark Matter | Unaccounted Gravity?
+* Poločas rozpadu/přeměny | Čas polorozpadu/polopřeměny

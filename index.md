@@ -20,3 +20,4 @@
 
 * [[Stages of Climate Change Denial]]#
 * [[Misnomers]]#
+* [[Scientific Mistakes]]#
