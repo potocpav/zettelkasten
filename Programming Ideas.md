@@ -12,7 +12,7 @@ tags:
   - Earth diameter computation based on sunset observations,
   - Moon distance based on lunar parallax (two moon photos in one night)
 * Web app for deep neural image manipulation
-  -
+* Special relativity playground (WIP)
 
 ## Data visualization and analysis
 
