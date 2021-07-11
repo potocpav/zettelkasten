@@ -8,6 +8,10 @@
 
 [[z:zettels?tag=programming]]#
 
+## Physics Experiments
+
+[[z:zettels?tag=experiment]]#
+
 ## Music
 
 [[z:zettels?tag=music]]#
