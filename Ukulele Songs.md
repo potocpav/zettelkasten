@@ -1,5 +1,7 @@
 ---
 date: 2020-10-14T19:00
+tags:
+  - music
 ---
 
 # Ukulele Songs

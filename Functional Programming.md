@@ -305,5 +305,5 @@ This doesn't mean that FP is overall better for software development. Perhaps in
 
 ## See Also
 
-* [[83d4b42b|OOP Deconstruction]]
-* [[79be9c2a|OOP Notes]]
+* [[OOP Deconstruction|OOP Deconstruction]]
+* [[Object Oriented Programming|OOP Notes]]

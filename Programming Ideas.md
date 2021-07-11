@@ -1,5 +1,7 @@
 ---
 date: 2021-01-27T22:56
+tags:
+  - programming
 ---
 
 # Programming Ideas
@@ -10,7 +12,7 @@ date: 2021-01-27T22:56
   - Earth diameter computation based on sunset observations,
   - Moon distance based on lunar parallax (two moon photos in one night)
 * Web app for deep neural image manipulation
-  - 
+  -
 
 ## Data visualization and analysis
 

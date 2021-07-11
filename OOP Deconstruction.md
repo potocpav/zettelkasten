@@ -29,5 +29,5 @@ Let's start with inheritance, since tearing it apart is quite uncontroversial. I
 
 ## See Also
 
-* [[79be9c2a|OOP Notes]]
-* [[fb85c669|Functional Programming]]
+* [[Object Oriented Programming|OOP Notes]]
+* [[Functional Programming|Functional Programming]]

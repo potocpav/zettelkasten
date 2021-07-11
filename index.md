@@ -1,9 +1,18 @@
 # Overview
 
-* [[40d3af21]]
-* [[075d3fc7]]
-* [[46849d02]]
-* [[06148c10]]
-* [[a0f36bf1]]
-* [[fb85c669]]
-* [[10840bfb]]
+## Maths Problems
+
+[[z:zettels?tag=problem]]#
+
+## Programming
+
+[[z:zettels?tag=programming]]#
+
+## Music
+
+[[z:zettels?tag=music]]#
+
+## Other Pages
+
+* [[Stages of Climate Change Denial]]#
+* [[Misnomers]]#

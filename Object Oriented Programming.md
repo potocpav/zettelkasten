@@ -20,5 +20,5 @@ Uncle Bob (2008), of all people, trashes side effects, including changes to clas
 
 ## See Also
 
-* [[83d4b42b|OOP Deconstruction]]
-* [[fb85c669|Functional Programming]]
+* [[OOP Deconstruction|OOP Deconstruction]]
+* [[Functional Programming|Functional Programming]]
