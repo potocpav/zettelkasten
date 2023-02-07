@@ -10,7 +10,7 @@ But no matter what you do, 1 ml of liquid always remains inside  the carton afte
 
 **Question 1:** You use 100 ml of water to wash out the container once according to the procedure above. How much juice (approx.) still remains in the container?
 
-**Question 2:** You use 100 ml of water, but you wash out the container twice: each time using 50 ml. How much juice (approx.) still remains in the container?
+**Question 2:** You use 100 ml of water, but you wash out the container twice: each time using 50 ml. How much juice (approx.) still remains in the container? How much more efficient is this than the single wash from Question 1?
 
 **Question 3:** Is the 50/50 split for two washes ideal, or is it more efficient to split the 100 ml in a different way? You of course want to remove as much juice as possible.
 
