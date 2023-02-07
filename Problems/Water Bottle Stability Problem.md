@@ -6,7 +6,7 @@ tags:
  - calculus
 ---
 
-# Water Bottle Stability Problem
+![](bottle.jpg)
 
 You want to make a water bottle stable against tipping by partially filling it with water. How high do you
 need to fill it to make it as stable as possible? The bottle is cylindrical with radius $r$, and its weight is negligible.
