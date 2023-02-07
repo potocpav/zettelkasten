@@ -5,11 +5,11 @@ page:
   siteTitle: Emanote Template
 
 template:
-  theme: red
+  # theme: red
 
   # You can add your own variables here, like editBaseUrl.
   # See after-note.tpl to see where editBaseUrl gets used.
-  editBaseUrl: https://github.com/srid/emanote-template/edit/master
+  editBaseUrl: https://github.com/potocpav/zettelkasten/edit/master
 
   # Uncomment this to get neuron-style pages
   # name: /templates/layouts/note
