@@ -1,0 +1,1297 @@
+<!DOCTYPE html>
+<html lang='en'>
+
+<head>
+  <meta charset='UTF-8' />
+  <meta name='viewport' content='width=device-width, initial-scale=1' />
+  <title>
+    Functional Programming – Emanote Template
+  </title>
+  
+    
+      <meta property='og:description' content='Functional programming (FP) is, similarly to other programming paradigms, quite difficult to pin down. Instead of having a clear definition, these characteristics are commonly associated with functional style:' />
+      <meta property='og:site_name' content='Emanote Template' />
+      <meta property='og:image' content />
+      <meta property='og:type' content='website' />
+      <meta property='og:title' content='Functional Programming' />
+    
+    
+      <base href='/zettelkasten/' />
+      <link href='favicon.svg' rel='icon' />
+    
+    <script>
+  window.MathJax = {
+    startup: {
+      ready: () => {
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script async id='MathJax-script' src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>
+
+
+  
+  <link href='tailwind.css?instanceId=8a883426-914d-4fd4-afc0-5755ff52e54c' rel='stylesheet' type='text/css' />
+
+  <style>
+    /* Heist error element */
+    strong.error {
+      color: lightcoral;
+      font-size: 90%;
+      font-family: monospace;
+    }
+
+    /* External link icon */
+    a[data-linkicon=""]::after {
+      content: ""
+    }
+
+    a[data-linkicon=none]::after {
+      content: ""
+    }
+
+    a[data-linkicon="external"]::after {
+      content: url('data:image/svg+xml,\
+      <svg xmlns="http://www.w3.org/2000/svg" height="0.7em" viewBox="0 0 20 20"> \
+        <g style="stroke:gray;stroke-width:1"> \
+          <line x1="5" y1="5" x2="5" y2="14" /> \
+          <line x1="14" y1="9" x2="14" y2="14" /> \
+          <line x1="5" y1="14" x2="14" y2="14" /> \
+          <line x1="5" y1="5" x2="9" y2="5"  /> \
+          <line x1="10" y1="2" x2="17" y2="2"  /> \
+          <line x1="17" y1="2" x2="17" y2="9" /> \
+          <line x1="10" y1="9" x2="17" y2="2" style="stroke-width:1.0" /> \
+        </g> \
+      </svg>');
+    }
+
+    a[data-linkicon="external"][href^="mailto:"]::after {
+      content: url('data:image/svg+xml,\
+        <svg \
+          xmlns="http://www.w3.org/2000/svg" \
+          height="0.7em" \
+          fill="none" \
+          viewBox="0 0 24 24" \
+          stroke="gray" \
+          stroke-width="2"> \
+          <path \
+            stroke-linecap="round" \
+            stroke-linejoin="round" \
+            d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" /> \
+        </svg>');
+    }
+  </style>
+  <!-- What goes in this file will appear on near the end of <head>--><link rel='preload' href='_emanote-static/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf' as='font' type='font/ttf' crossorigin />
+
+<style>
+  @font-face {
+    font-family: 'WorkSans';
+    /* FIXME: This ought to be: ${ema:emanoteStaticLayerUrl}/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf */
+    src: url(_emanote-static/fonts/Work_Sans/WorkSans-VariableFont_wght.ttf) format("truetype");
+    font-display: swap;
+  }
+
+  body {
+    font-family: 'WorkSans', sans-serif;
+    font-variation-settings: 'wght' 350;
+  }
+
+  a.mavenLinkBold {
+    font-variation-settings: 'wght' 400;
+  }
+
+  strong {
+    font-variation-settings: 'wght' 500;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  header,
+  .header-font {
+    font-family: 'WorkSans', sans-serif;
+  }
+
+  h1 {
+    font-variation-settings: 'wght' 500;
+  }
+
+  h2 {
+    font-variation-settings: 'wght' 400;
+  }
+
+  h3 {
+    font-variation-settings: 'wght' 300;
+  }
+</style>
+
+
+  
+  <link rel='stylesheet' href='_emanote-static/stork/flat.css' />
+<!-- Custom Stork-search styling for Emanote -->
+<style>
+  #stork-search-container {
+    z-index: 1000;
+    background-color: rgb(15 23 42/.8);
+  }
+
+  .stork-overflow-hidden-important {
+    overflow: hidden !important;
+  }
+</style>
+
+
+<script src='_emanote-static/stork/stork.js'></script>
+
+  
+    <script id='emanote-stork' data-emanote-base-url='/zettelkasten/'>
+      window.emanote = {};
+      window.emanote.stork = {
+        searchShown: false,
+        indexIsStale: false,
+        toggleSearch: function () {
+          window.emanote.stork.refreshIndex();
+          document.getElementById('stork-search-container').classList.toggle('hidden');
+          window.emanote.stork.searchShown = document.body.classList.toggle('stork-overflow-hidden-important');
+          if (window.emanote.stork.searchShown) {
+            document.getElementById('stork-search-input').focus();
+          }
+        },
+        clearSearch: function () {
+          document.getElementById('stork-search-container').classList.add('hidden');
+          document.body.classList.remove('stork-overflow-hidden-important');
+          window.emanote.stork.searchShown = false;
+        },
+
+        getBaseUrl: function () {
+          const baseUrl = document.getElementById("emanote-stork").getAttribute('data-emanote-base-url') || '/';
+          return baseUrl;
+        },
+
+        registerIndex: function (options) {
+          const indexName = 'emanote-search'; // used to match input[data-stork] attribute value
+          const indexUrl = window.emanote.stork.getBaseUrl() + '-/stork.st';
+          stork.register(
+            indexName,
+            indexUrl,
+            options);
+        },
+
+        init: function () {
+          if (document.readyState !== 'complete') {
+            window.addEventListener('load', function () {
+              stork.initialize(window.emanote.stork.getBaseUrl() + '_emanote-static/stork/stork.wasm');
+              window.emanote.stork.registerIndex();
+            });
+
+            document.addEventListener('keydown', event => {
+              if (window.emanote.stork.searchShown && event.key === 'Escape') {
+                window.emanote.stork.clearSearch();
+                event.preventDefault();
+              } else if ((event.key == 'k' || event.key == 'K') && (event.ctrlKey || event.metaKey)) {
+                window.emanote.stork.toggleSearch();
+                event.preventDefault();
+              }
+            });
+          } else {
+            // This section is called during Ema's hot reload.
+            // 
+            // Mark the current index as stale, and refresh it *only when* the
+            // user actually invokes search.
+            // 
+            // We do not refresh the index *right away*, as that will cause
+            // memory leaks in the browser. See
+            // https://github.com/srid/emanote/issues/411#issuecomment-1402056235
+            console.log("stork: Marking index as stale");
+            window.emanote.stork.markIndexAsStale();
+          }
+        },
+
+        markIndexAsStale: function () {
+          window.emanote.stork.indexIsStale = true;
+        },
+
+        refreshIndex: function () {
+          if (window.emanote.stork.indexIsStale) {
+            console.log("stork: Reloading index");
+            window.emanote.stork.indexIsStale = false;
+            // NOTE: This will leak memory. See the comment above.
+            window.emanote.stork.registerIndex({ forceOverwrite: true });
+          }
+        }
+
+      };
+
+      window.emanote.stork.init();
+    </script>
+  
+
+</head>
+
+<!-- DoNotFormat -->
+
+
+
+<!-- DoNotFormat -->
+
+<body class='bg-gray-400 overflow-y-scroll'>
+  
+    <div class='container mx-auto'>
+
+      <nav id='breadcrumbs' class='w-full text-gray-700 md:hidden'>
+  <div class='flex justify-left'>
+    <div class='w-full px-2 py-2 bg-gray-50'>
+      <ul class='flex flex-wrap text-lg'>
+        <li class='inline-flex items-center'>
+          
+            
+              <img style='width: 1rem;' src='favicon.svg' />
+            
+          
+        </li>
+        
+          
+            <li class='inline-flex items-center'>
+              <a class='px-1 font-bold' href=''>
+                Personal notes
+              </a>
+              <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
+                <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
+              </svg>
+            </li>
+          
+            <li class='inline-flex items-center'>
+              <a class='px-1 font-bold' href='Programming.html'>
+                Programming
+              </a>
+              <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
+                <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
+              </svg>
+            </li>
+          
+        
+      </ul>
+    </div>
+    <button class='inline px-2 py-1 bg-gray-50 outline-none cursor-pointer focus:outline-none' title='Search (Ctrl+K)' type='button' onclick='window.emanote.stork.toggleSearch()'>
+      <svg xmlns='http://www.w3.org/2000/svg' style='width: 1rem;' class='hover:text-blue-700' f
+ fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'>
+  <path stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'></path>
+</svg>
+    </button>
+    <button class='inline px-2 py-1 text-white bg-blue-600 outline-none cursor-pointer focus:outline-none' title='Toggle sidebar' type='button' onclick="toggleHidden('sidebar')">
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-4' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 6h16M4 12h16M4 18h16'></path>
+      </svg>
+    </button>
+    <script>
+      function toggleHidden(elemId) {
+        document.getElementById(elemId).classList.toggle("hidden");
+      }
+    </script>
+  </div>
+</nav>
+
+      <div id='container' class='flex flex-nowrap flex-col md:flex-row bg-gray-50 md:mt-8 md:shadow-2xl md:mb-8'>
+        <!-- Sidebar column -->
+        <nav id='sidebar' class='flex-shrink hidden leading-relaxed md:block md:sticky md:top-0 md:h-full md:w-48 xl:w-64'>
+          <div class='px-2 py-2 text-gray-800'>
+            <div id='indexing-links' class='flex flex-row float-right p-2 space-x-2 text-gray-500'>
+              <a href='-/tags.html' title='View tags'>
+                <svg style='width: 1rem;' class='hover:text-blue-700' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                  <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z'>
+                  </path>
+                </svg>
+              </a>
+              <a href='-/all.html' title='Expand full tree'>
+                <svg style='width: 1rem;' class='hover:text-blue-700' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+                  <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4'>
+                  </path>
+                </svg>
+              </a>
+              <a title='Search (Ctrl+K)' class='cursor-pointer' onclick='window.emanote.stork.toggleSearch()'>
+                <svg xmlns='http://www.w3.org/2000/svg' style='width: 1rem;' class='hover:text-blue-700' f
+ fill='none' viewBox='0 0 24 24' stroke='currentColor' stroke-width='2'>
+  <path stroke-linecap='round' stroke-linejoin='round' d='M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z'></path>
+</svg>
+              </a>
+            </div>
+
+            <div id='site-logo' class='pl-2'>
+              <div class='flex items-center my-2 space-x-2 justify-left'>
+                <a href='' title='Go to Home'>
+                  
+                    
+                      <!-- The style width attribute here is to prevent huge
+                      icon from displaying at those rare occasions when Tailwind
+                      hasn't kicked in immediately on page load 
+                      -->
+                      <img style='width: 1rem;' class='transition transform hover:scale-110 hover:opacity-80' src='favicon.svg' />
+                    
+                  
+                </a>
+                <a class='font-bold truncate' title='Go to Home' href=''>
+                  Home
+                </a>
+              </div>
+            </div>
+
+            
+              <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+  
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 flex-shrink-0 inline text-gray-500' viewBox='0 0 20 20' fill='currentColor'>
+        <path d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'></path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Misc' href='Misc.html'>
+      Misc
+    </a>
+    
+      
+        <span class='text-gray-300' title='5 children inside'>
+          5
+        </span>
+      
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+            
+              <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+  
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 flex-shrink-0 inline text-gray-500' viewBox='0 0 20 20' fill='currentColor'>
+        <path d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'></path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Music' href='Music.html'>
+      Music
+    </a>
+    
+      
+        <span class='text-gray-300' title='3 children inside'>
+          3
+        </span>
+      
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+            
+              <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+  
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 flex-shrink-0 inline text-gray-500' viewBox='0 0 20 20' fill='currentColor'>
+        <path d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'></path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Problems' href='Problems.html'>
+      Problems
+    </a>
+    
+      
+        <span class='text-gray-300' title='6 children inside'>
+          6
+        </span>
+      
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+            
+              <!-- Variable bindings for this tree-->
+  
+    
+      
+      
+    
+
+
+
+  
+  
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 flex-shrink-0 inline text-gray-700' viewBox='0 0 20 20' fill='currentColor'>
+        <path fill-rule='evenodd' d='M2 6a2 2 0 012-2h4l2 2h4a2 2 0 012 2v1H8a3 3 0 00-3 3v1.5a1.5 1.5 0 01-3 0V6z' clip-rule='evenodd'></path>
+        <path d='M6 12a2 2 0 012-2h8a2 2 0 012 2v2a2 2 0 01-2 2H2h2a2 2 0 002-2v-2z'></path>
+      </svg>
+      
+  
+    <a class='font-bold hover:underline truncate' title='Programming' href='Programming.html'>
+      Programming
+    </a>
+    
+      
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+    
+      <!-- Variable bindings for this tree-->
+  
+  
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z'>
+        </path>
+      </svg>
+      
+  
+    <a class='font-bold text-blue-600 hover:underline truncate' title='Functional Programming' href='Programming/Functional%20Programming.html'>
+      Functional Programming
+    </a>
+    
+      
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+    
+  
+</div>
+    
+      <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        </path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='OOP Deconstruction' href='Programming/OOP%20Deconstruction.html'>
+      OOP Deconstruction
+    </a>
+    
+      
+        
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+    
+      <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        </path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Object Oriented Programming' href='Programming/Object%20Oriented%20Programming.html'>
+      Object Oriented Programming
+    </a>
+    
+      
+        
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+    
+      <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        </path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Bugs I Introduced' href='Programming/Programming%20Bugs.html'>
+      Bugs I Introduced
+    </a>
+    
+      
+        
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+    
+      <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        </path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Programming Ideas' href='Programming/Programming%20Ideas.html'>
+      Programming Ideas
+    </a>
+    
+      
+        
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+    
+  
+</div>
+            
+
+          </div>
+        </nav>
+
+        <!-- Main body column -->
+        <div class='flex-1 w-full overflow-x-auto bg-white'>
+          <main class='px-4 py-4'>
+            <h1 class='flex items-end justify-center mb-4 p-3 bg-blue-100 text-5xl font-extrabold text-black rounded'>
+  <a class='z-40 tracking-tighter '>
+    Functional Programming
+  </a>
+</h1>
+            <article class='overflow-auto'>
+  <!-- What goes in this file will appear on top of note body-->
+  <div xmlhtmlRaw><style>
+body {
+    font-size: 1.1em !important;
+}
+</style>
+</div><h1 id='functional-programming' class='pb-2 mb-2 text-5xl font-bold text-center'>Functional Programming</h1>
+    <p class='mb-3'>
+      Functional programming (FP) is, similarly to other programming paradigms, quite difficult to pin down. Instead of having a clear definition, these characteristics are commonly associated with functional style:
+    </p>
+  
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
+      
+        <li>
+          <strong>Functions are treated as first-class citizens.</strong> They are frequently passed as arguments to other functions.
+        </li>
+      
+        <li>
+          <strong>Functions are pure.</strong> They are deterministic and side-effect-free, similarly to mathematical functions.
+        </li>
+      
+        <li>
+          <strong>Algebraic data types</strong> are used for data modelling.
+        </li>
+      
+        <li>
+          <strong>Immutable values</strong> are preferred over mutable values.
+        </li>
+      
+        <li>
+          <strong>Algebraic structures</strong> are used as abstractions.
+        </li>
+      
+    </ul>
+  
+    <p class='mb-3'>
+      Seeing the value of these characteristics is not easy, however. Each of them must be argued separately, and it can be difficult to make a solid case for their utility, especially to a person who is used to programming in a different paradigm. How can we convince fellow developers that all the functional weirdness is warranted? I will try to present an unified argument for all the FP characteristics in this article.
+    </p>
+  
+    <p class='mb-3'>
+      It turns out that all of the above points can be derived from a single design rule.
+    </p>
+  <div xmlhtmlRaw><style>
+.banner {
+    font-size: larger;
+    padding: 0.5rem;
+    margin: 1rem;
+    border: 1px solid black;
+    text-align: center;
+}
+</style>
+</div><div xmlhtmlRaw><p class="banner">
+Functional programming is the consequence of using types to precisely encode program semantics.
+</p>
+</div>
+    <p class='mb-3'>
+      If you agree that type systems should be used to their full potential, functional programming is not much of a paradigm - it is rather just a natural consequence. And it is quite uncontroversial to see that type systems should be wielded efficiently to prevent bugs and maximize correctness. That’s, after all, precisely what they were designed to do in the first place.
+    </p>
+  
+    <p class='mb-3'>
+      Note that the above statement is an implication:
+    </p>
+  
+    <p class='mb-3'>
+      <span class='math display'>$$\text{precise types} ⇒ \text{functional programming}.$$</span>
+    </p>
+  
+    <p class='mb-3'>
+      The converse isn’t true, as FP is also possible in weakly-typed languages:
+    </p>
+  
+    <p class='mb-3'>
+      <span class='math display'>$$\text{functional programming} ⇏ \text{precise types}.$$</span>
+    </p>
+  
+    <p class='mb-3'>
+      In the following sections, I will try to show how each of the signature FP features serves to make types more precise.
+    </p>
+  <h2 id='algebraic-data-types' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Algebraic Data Types</h2>
+    <p class='mb-3'>
+      Data types allow us to specify what values an expression might take. We want types to match semantics as precisely as possible. They would ideally allow all valid values while disallowing all invalid values. Algebraic data types (ADTs) provide us with a rich vocabulary to construct precise types in many scenarios.
+    </p>
+  
+    <p class='mb-3'>
+      For example, say we want to specify a type representing a JSON value.
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='c++ language-c++'>// This is a JSON value.
+JSON json;</code></pre></div>
+    <p class='mb-3'>
+      What we don’t want is a JSON value with a fine print attached:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='c++ language-c++'>// This is a JSON value¹
+// ¹ or an inconsistent thing with undefined behavior on access
+JSON json;</code></pre></div>
+    <p class='mb-3'>
+      We can have a look at how this is acnieved in practice. Here is how one might represent a JSON value in C++. Code is adapted and simplified from the popular <a href='https://github.com/nlohmann/json' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>nlohmann’s JSON library</a>:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='c++ language-c++'>enum class value_t {
+    null, boolean, number_float, integer, string, array, object,
+};
+
+union json_value {
+    bool boolean;
+    double number_float;
+    std::int64_t number_integer;
+    std::string *string;
+    std::vector&lt;json&gt; *array;
+    std::map&lt;std::string, json&gt; *object;
+}
+
+class json {
+    value_t m_type;
+    json_value m_value;
+}</code></pre></div>
+    <p class='mb-3'>
+      Consider what needs to be ensured for <code class='py-0.5 px-0.5 bg-gray-100'>json</code> to represent a valid JSON value:
+    </p>
+  
+    <ul class='my-3 ml-6 space-y-1 list-decimal list-inside'>
+      
+        <li>
+          <code class='py-0.5 px-0.5 bg-gray-100'>m_type</code> must be an integer less than 7.
+        </li>
+      
+        <li>
+          <code class='py-0.5 px-0.5 bg-gray-100'>m_type</code> must correspond to the type of <code class='py-0.5 px-0.5 bg-gray-100'>m_value</code>.
+        </li>
+      
+        <li>
+          For a string, array, and object, <code class='py-0.5 px-0.5 bg-gray-100'>m_value</code> must be a valid pointer.
+        </li>
+      
+        <li>
+          Above points must be satisfied on all depth levels, since <code class='py-0.5 px-0.5 bg-gray-100'>json</code> is a tree structure.
+        </li>
+      
+    </ul>
+  
+    <p class='mb-3'>
+      These requirements are commonly known as <strong>invariants</strong>, and they are precisely the <strong>rules that aren’t captured by the type system</strong>; they must be upheld by the programmer. Indeed, the <code class='py-0.5 px-0.5 bg-gray-100'>json</code> library <a href='https://github.com/nlohmann/json/blob/97fe455ad5dd889ed30cf23bc735bb038ef67435/include/nlohmann/json.hpp#L150-L155' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>documents some of them in comments</a> and provides <a href='https://github.com/nlohmann/json/blob/97fe455ad5dd889ed30cf23bc735bb038ef67435/include/nlohmann/json.hpp#L1227-L1233' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>functions to check their validity</a>. To further facilitate safety, <code class='py-0.5 px-0.5 bg-gray-100'>m_type</code> and <code class='py-0.5 px-0.5 bg-gray-100'>m_value</code> are private, so only the code inside the JSON library must be careful about invariants.
+    </p>
+  
+    <p class='mb-3'>
+      This is a compromise rather than the ideal case. We must trust library internals to correctly uphold all the invariants. Nlohmann’s JSON library contains thousands of lines of code with access to the private fields of <code class='py-0.5 px-0.5 bg-gray-100'>json</code>, so this is definitely not a trivial concern!
+    </p>
+  
+    <p class='mb-3'>
+      Invariants arise from the inability of the type system. If we were able to construct a type which contains <strong>only</strong> valid JSON values, all these problems would disappear. We could expose data directly, since every value is valid by construction. There is no longer a trusted code-base, no assertions, tests or comments about invariants, we only need to trust the type-checker.
+    </p>
+  
+    <p class='mb-3'>
+      Behold the Rust JSON representation, adapted from the canonical <a href='https://github.com/serde-rs/json' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>serde library</a>:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='rust language-rust'>pub enum Json {
+    Null,
+    Bool(bool),
+    Integer(i64),
+    Float(f64),
+    String(String),
+    Array(Vec&lt;Json&gt;),
+    Object(Map&lt;String, Json&gt;),
+}</code></pre></div>
+    <p class='mb-3'>
+      Rust <code class='py-0.5 px-0.5 bg-gray-100'>enum</code> is an union type which contains precisely one of the specified alternatives:
+    </p>
+  
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
+      
+        <li>
+          Either a <code class='py-0.5 px-0.5 bg-gray-100'>Null</code>,
+        </li>
+      
+        <li>
+          or a <code class='py-0.5 px-0.5 bg-gray-100'>Bool</code> with a single <code class='py-0.5 px-0.5 bg-gray-100'>bool</code> value,
+        </li>
+      
+        <li>
+          or an <code class='py-0.5 px-0.5 bg-gray-100'>Integer</code> with an <code class='py-0.5 px-0.5 bg-gray-100'>i64</code> value,
+        </li>
+      
+        <li>
+          etc.
+        </li>
+      
+    </ul>
+  
+    <p class='mb-3'>
+      Notice how the <code class='py-0.5 px-0.5 bg-gray-100'>Json</code> enum is public. It can be, because there are no invariants. It is impossible to construct invalid <code class='py-0.5 px-0.5 bg-gray-100'>Json</code> values. Rust enumerations, which are an example of an algebraic data type, enable us to model semantics much more precisely than plain structs. This shifts responsibility from the programmer to the type checker, and allows us to write more reliable software. Here I showed just one example, but surprisingly many different objects can be precisely described using ADTs.
+    </p>
+  
+    <p class='mb-3'>
+      ADTs are one way to precisely model type semantics. Without proof
+    <sup class='px-0.5'>
+      <a class='text-blue-600 hover:underline' href='Programming/Functional%20Programming.html#fn1'>
+        1
+      </a>
+    </sup>
+  , I will assert that they are actually the <strong>only</strong> way: you need a feature of (at least) equivalent power to hope for precise types. This would mean that we have the first piece of the puzzle:
+    </p>
+  <div xmlhtmlRaw><p class="banner">
+<b>ADTs</b> are the consequence of using types to precisely encode program semantics.
+</p>
+</div><h2 id='pure-functions' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Pure Functions</h2>
+    <p class='mb-3'>
+      Continuing the example from the previous section, let’s define a function in Rust which returns a string represented by the given JSON:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='rust language-rust'>fn to_array(json: Json) -&gt; Option&lt;String&gt; {
+    match json {
+        String(s) =&gt; Some(s),
+        _ =&gt; None,
+    }
+}</code></pre></div>
+    <p class='mb-3'>
+      This function works correctly for any <code class='py-0.5 px-0.5 bg-gray-100'>json</code> no matter what it is, or where it came from
+    <sup class='px-0.5'>
+      <a class='text-blue-600 hover:underline' href='Programming/Functional%20Programming.html#fn2'>
+        2
+      </a>
+    </sup>
+  . Can we have similar guarantees for function types too? Let’s examine Java <code class='py-0.5 px-0.5 bg-gray-100'>map</code> combinator for the Stream interface.
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='java language-java'>/*
+* Returns a stream consisting of the results of applying the given
+* function to the elements of this stream.
+*
+* @param &lt;R&gt; The element type of the new stream
+* @param mapper a non-interfering, stateless function to apply to each element
+* @return the new stream
+*/
+&lt;R&gt; Stream&lt;R&gt; map(Function&lt;? super T, ? extends R&gt; mapper);</code></pre></div>
+    <p class='mb-3'>
+      The <code class='py-0.5 px-0.5 bg-gray-100'>map</code> method takes the function <code class='py-0.5 px-0.5 bg-gray-100'>mapper</code> to produce a transformed stream of values. Does <code class='py-0.5 px-0.5 bg-gray-100'>map</code> work for correctly for any choice or <code class='py-0.5 px-0.5 bg-gray-100'>mapper</code>? No. This fact is duly stated in the comment above: <code class='py-0.5 px-0.5 bg-gray-100'>mapper</code> must be a “<a href='https://docs.oracle.com/javase/8/docs/api/java/util/stream/package-summary.html#NonInterference' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>non-interfering, stateless function</a>". If this condition is not satisfied, bad stuff can happen including data races, exceptions, and incorrect or non-deterministic results. We have once again found an imprecise type which is inhabited by more values than are semantically valid. We have to rely on our diligence to ensure that the invariants hold.
+    </p>
+  
+    <p class='mb-3'>
+      Let’s take a step back and examine why this is the case. The type of a function, called <strong>function signature</strong>, consists of <strong>argument types</strong> and the <strong>return type</strong>
+    <sup class='px-0.5'>
+      <a class='text-blue-600 hover:underline' href='Programming/Functional%20Programming.html#fn3'>
+        3
+      </a>
+    </sup>
+  . Argument types specify the prerequisites, and the return type specifies the results of the function. However, there are escape hatches: functions can also perform various side-effects not captured by the signature. They can typically
+    </p>
+  
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
+      
+        <li>
+          Access global variables, static variables, or instance variables,
+        </li>
+      
+        <li>
+          Access external resources such as PRNG state, network state, file IO, console, etc.,
+        </li>
+      
+        <li>
+          Mutate arguments,
+        </li>
+      
+        <li>
+          Throw exceptions.
+        </li>
+      
+    </ul>
+  
+    <p class='mb-3'>
+      These interactions must be well documented and kept in mind by the programmers since the type system cannot help us. If side effects are not used sparingly, function signatures lose their descriptiveness.
+    </p>
+  
+    <p class='mb-3'>
+      To fix the <code class='py-0.5 px-0.5 bg-gray-100'>map</code> example above, we must have a way to enforce the “non-interfering, stateless” property at the type level. We call this property <strong>purity</strong>, and pure functions interact with the outside world <em>exclusively</em> through their arguments and return types. Without purity, we can’t assign precise types to higher-order functions: functions that use side effects to wreak havoc will always creep into our types.
+    </p>
+  
+    <p class='mb-3'>
+      We have no choice but to limit ourselves to pure functions, and it follows that
+    </p>
+  <div xmlhtmlRaw><p class="banner">
+<b>Pure functions</b> are the consequence of using types to precisely encode program semantics.
+</p>
+</div>
+    <p class='mb-3'>
+      Many languages nowadays allow marking pure functions as such: <code class='py-0.5 px-0.5 bg-gray-100'>const fn</code> in Rust, <code class='py-0.5 px-0.5 bg-gray-100'>constexpr</code> in C++, <code class='py-0.5 px-0.5 bg-gray-100'>pure</code> in D, etc. This capability tends to be, unfortunately, too limiting to be used for the types of higher-order function arguments. The only general-purpose languages that use pure functions pervasively are from the Haskell family. In Haskell, as a matter of fact, all functions are pure. And sure enough, no comments are needed in Haskell to specify how the mapping function should behave, as all functions of the correct type are valid.
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='haskell language-haskell'>-- O(n). `map f xs` is the list obtained by applying
+-- `f` to each element of `xs`.
+map :: (a -&gt; b) -&gt; [a] -&gt; [b]</code></pre></div><h2 id='algebraic-structures' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Algebraic Structures</h2>
+    <p class='mb-3'>
+      Now we have precise value and function types, but that is not enough. We also need a way to specify relations between them. Consider, for example, a sorting algorithm. It consists of a function <code class='py-0.5 px-0.5 bg-gray-100'>sort</code> together with a less-or-equal operator <code class='py-0.5 px-0.5 bg-gray-100'>leq</code>. In pseudo-code:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='rust language-rust'>sort(Array&lt;T&gt;) -&gt; Array&lt;T&gt;
+leq(T, T) -&gt; Bool // less or equal, ≤</code></pre></div>
+    <p class='mb-3'>
+      The correctness of <code class='py-0.5 px-0.5 bg-gray-100'>sort</code> depends crucially on the semantics of <code class='py-0.5 px-0.5 bg-gray-100'>leq</code>: it can’t be any old function, it must be a <a href='https://en.wikipedia.org/wiki/Total_order' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>total order</a>. It must satisfy the following relations:
+    </p>
+  
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
+      
+        <li>
+          <strong>Antisymmetry</strong>. If <code class='py-0.5 px-0.5 bg-gray-100'>a ≤ b</code> and <code class='py-0.5 px-0.5 bg-gray-100'>b ≤ a</code> then <code class='py-0.5 px-0.5 bg-gray-100'>a = b</code>.
+        </li>
+      
+        <li>
+          <strong>Transitivity</strong>. If <code class='py-0.5 px-0.5 bg-gray-100'>a ≤ b</code> and <code class='py-0.5 px-0.5 bg-gray-100'>b ≤ c</code> then <code class='py-0.5 px-0.5 bg-gray-100'>a ≤ c</code>.
+        </li>
+      
+        <li>
+          <strong>Connexity</strong>. <code class='py-0.5 px-0.5 bg-gray-100'>a ≤ b</code> or <code class='py-0.5 px-0.5 bg-gray-100'>b ≤ a</code>.
+        </li>
+      
+    </ul>
+  
+    <p class='mb-3'>
+      If some of these are not satisfied, <code class='py-0.5 px-0.5 bg-gray-100'>sort</code> behaviour may not be what we expect. In Python, for example, the following happens:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='python language-python'>&gt;&gt;&gt; sorted([4, float('nan'), 2, 1])
+[4, nan, 1, 2]</code></pre></div>
+    <p class='mb-3'>
+      This result is clearly incorrect, and it is because <code class='py-0.5 px-0.5 bg-gray-100'>leq</code> is not a total order over IEEE 754 floats: it doesn’t satisfy connexity. We need a way to encode this requirement into the type system, otherwise these kinds of bugs can’t be prevented. This is what typeclasses/traits are used for. In Haskell:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='haskell language-haskell'>sort :: Ord a =&gt; [a] -&gt; [a]</code></pre></div>
+    <p class='mb-3'>
+      The <code class='py-0.5 px-0.5 bg-gray-100'>Ord</code> constraint tells us that we have <code class='py-0.5 px-0.5 bg-gray-100'>≤</code> which forms a total order over <code class='py-0.5 px-0.5 bg-gray-100'>a</code>. In Rust, there is an equivalent pattern, this time sorting in place:
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='rust language-rust'>impl&lt;T&gt; Vec&lt;T&gt; {
+    pub fn sort(&amp;mut self) where T: Ord,
+}</code></pre></div>
+    <p class='mb-3'>
+      And indeed, <code class='py-0.5 px-0.5 bg-gray-100'>Ord</code> is not implemented for floats, which prevents the pathological use-case above. Users of <code class='py-0.5 px-0.5 bg-gray-100'>sort</code> and orderable types can rest assured that they can’t mess up the composition.
+    </p>
+  
+    <p class='mb-3'>
+      For a different example, suppose we want to make a parallel array sum function. This function splits the array into N sub-arrays, sums up each one in a thread, and finally sums the sub-results together. To get the same result regardless of the number of sub-arrays, our sum operation must be associative. We can express this by using the <code class='py-0.5 px-0.5 bg-gray-100'>Semigroup a</code> constraint which provides us with an associative operation over <code class='py-0.5 px-0.5 bg-gray-100'>a</code>.
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='haskell language-haskell'>parallelSum :: Semigroup a =&gt; [a] -&gt; a</code></pre></div>
+    <p class='mb-3'>
+      We need to use algebraic structures, such as a semigroup or a total order, to precisely specify types of functions whose correctness depends on the satisfaction of specific laws relating values and functions. This is the conclusion:
+    </p>
+  <div xmlhtmlRaw><p class="banner">
+<b>Algebraic structures</b> are the consequence of using types to precisely encode program semantics.
+</p>
+</div>
+    <p class='mb-3'>
+      This pattern of having algebraic structures with associated laws is ubiquitous in functional programming, and there are many well-known algebraic structures. In OOP languages, interfaces or classes could be used to the same effect, however, they have <a href='https://stackoverflow.com/a/8123973' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>many restrictions</a> which make them much less useful.
+    </p>
+  <h2 id='immutable-values' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Immutable Values</h2>
+    <p class='mb-3'>
+      If we limit ourselves to only pure functions, mutability is no longer very useful. Functions can’t access anything but their arguments, and those can’t be modified. This means that mutability is confined only to function bodies, where it can serve as a convenience. Some languages use function calls instead of <code class='py-0.5 px-0.5 bg-gray-100'>for</code> and <code class='py-0.5 px-0.5 bg-gray-100'>while</code> loops, which prevents the few remaining use-cases for mutable values. Thus, immutability follows naturally from the other functional programming concepts we discussed earlier.
+    </p>
+  
+    <p class='mb-3'>
+      That said, mutable output arguments can be useful. I don’t see a problem with this alternative, as long as they are explicitly marked. It doesn’t weaken the expressiveness of function signatures and can be used, for example, to achieve greater performance. In Rust, mutable arguments are marked in the function signatures <strong>and</strong> at the call-sites, which makes information flow very obvious.
+    </p>
+  <h2 id='higher-order-functions' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Higher-order Functions</h2>
+    <p class='mb-3'>
+      There is probably an argument for how common HOFs like <code class='py-0.5 px-0.5 bg-gray-100'>map</code>, <code class='py-0.5 px-0.5 bg-gray-100'>filter</code>, or <code class='py-0.5 px-0.5 bg-gray-100'>reduce</code> help enhance type safety, but this article is too long already so I’m going to take the easy way out.
+    </p>
+  
+    <p class='mb-3'>
+      The use of higher-order functions (HOFs) in functional programming can be seen as the consequence of the above features. Functional purity forces the use of HOFs to describe even simple concepts like sequential actions. And because of pure functions and algebraic laws, it is safe and pleasant to work with HOFs. This leads to HOFs being used pervasively in functional programming, and thus, being associated with functional style.
+    </p>
+  <h2 id='notes-on-oop' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Notes on OOP</h2>
+    <p class='mb-3'>
+      Object oriented programming is a particularly bad offender when it comes to imprecise types, since it encourages both imprecise data types and non-descriptive functional signatures.
+    </p>
+  
+    <p class='mb-3'>
+      <strong>Imprecise data types</strong> arise because classes frequently contain too many fields which themselves are poorly typed. This is caused by:
+    </p>
+  
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
+      
+        <li>
+          OOP mental model of “thing == instance” is often not granular enough.
+        </li>
+      
+        <li>
+          Inheritance brings unnecessary baggage.
+        </li>
+      
+        <li>
+          Uninitialized states <a href='https://250bpm.com/blog:4/' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>are sometimes unavoidable</a>.
+        </li>
+      
+        <li>
+          Nullability is pervasive in mainstream OOP languages.
+        </li>
+      
+    </ul>
+  
+    <p class='mb-3'>
+      Often, tons invalid states are possible in class instances, and keeping everything consistent is a <strong>major</strong> challenge.
+    </p>
+  
+    <p class='mb-3'>
+      <strong>Non-descriptive functional signatures</strong> are given by the fact that functions have blanket access to instance variables. This is the same as passing in a bunch of mostly unnecessary arguments, which goes against descriptive function types. Worse, functions may work mainly through instance state manipulation instead of through return values. This leads to non-descriptive types, and by trying to compensate, to overly descriptive names. Ever seen code that looks like this excerpt from Clean Code?
+    </p>
+  <div class='py-0.5 mb-3 text-sm'><pre><code class='java language-java'>private void includeSetupAndTeardownPages() throws Exception {
+    includeSetupPages();
+    includePageContent();
+    includeTeardownPages();
+    updatePageContent();
+}
+
+private void includeSetupPages() throws Exception {
+    if (isSuite)
+      includeSuiteSetupPage();
+    includeSetupPage();
+}
+
+private void includeSuiteSetupPage() throws Exception {
+    include(SuiteResponder.SUITE_SETUP_NAME, "-setup");
+}
+
+private void includeSetupPage() throws Exception {
+    include("SetUp", "-setup");
+}</code></pre></div>
+    <p class='mb-3'>
+      Notice how function signatures are devoid of any information - every function has the exact same signature! Any of the statements can be duplicated, deleted, or rearranged without the compiler complaining. Control flow is fully implicit and the type system is all but useless. Luckily, this hardcore OOP style <a href='https://qntm.org/clean' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>is on the decline</a>.
+    </p>
+  
+    <p class='mb-3'>
+      In a purely functional setting, this can’t happen. Any pure function which returns <code class='py-0.5 px-0.5 bg-gray-100'>void</code> is useless since it conveys no information in its return value. As a rule of thumb, even in a non purely functional setting, <code class='py-0.5 px-0.5 bg-gray-100'>void</code>-returning functions should probably rarely be used.
+    </p>
+  <h2 id='conclusion' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Conclusion</h2>
+    <p class='mb-3'>
+      We have seen how different characteristics of functional programming arise from insisting on descriptive types. The main take-away is that functional programming does one thing better than other approaches: it better utilizes the type system.
+    </p>
+  
+    <p class='mb-3'>
+      This doesn’t mean that FP is overall better for software development. Perhaps in the process of being pedantic with types we arrived at a paradigm that is too impractical for everyday use. Discussing whether this is the case, and showing how effectful systems can be written in a purely functional style, may be the topic of a future blog post.
+    </p>
+  <h2 id='see-also' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>See Also</h2>
+    <ul class='my-3 ml-6 space-y-1 list-disc'>
+      
+        <li>
+          <a href='Programming/OOP%20Deconstruction.html' class='text-blue-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>OOP Deconstruction</a>
+        </li>
+      
+        <li>
+          <a href='Programming/Object%20Oriented%20Programming.html' class='text-blue-600 mavenLinkBold hover:underline' data-wikilink-type='WikiLinkNormal'>OOP Notes</a>
+        </li>
+      
+    </ul>
+  
+    <div title='Footnotes' class='pt-2 mt-8 space-y-1 text-gray-500 transform scale-x-90 border-t-2'>
+      <header class='font-semibold'>Footnotes</header>
+      
+        <div id='fn1'>
+          <header class='italic'>
+            1.
+          </header>
+          <div class='inline-block mb-2 ml-4'>
+            If I’m wrong on this, please point it out in the comments.
+          </div>
+        </div>
+      
+        <div id='fn2'>
+          <header class='italic'>
+            2.
+          </header>
+          <div class='inline-block mb-2 ml-4'>
+            C++ equivalent could exhibit undefined behavior if some of the invariants were broken.
+          </div>
+        </div>
+      
+        <div id='fn3'>
+          <header class='italic'>
+            3.
+          </header>
+          <div class='inline-block mb-2 ml-4'>
+            There is typically more information such as checked exceptions, value mutability, etc.
+          </div>
+        </div>
+      
+    </div>
+  
+
+  <div class='flex items-center justify-center mt-2'>
+  
+    
+      <a class='text-gray-300 hover:text-blue-600 text-sm' title='Edit this page on GitHub' href='https://github.com/potocpav/zettelkasten/edit/master/Programming/Functional Programming.md'>
+        <svg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+          <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z'></path>
+        </svg>
+      </a>
+    
+  
+</div>
+</article>
+            <div class='flex flex-col lg:flex-row lg:space-x-2'>
+              
+              
+  <div class='flex-1 p-4 mt-8 bg-gray-100 rounded'>
+    <header class='mb-2 text-xl font-semibold text-gray-500'>Links to this page</header>
+    <ul class='space-y-1'>
+      
+        <li>
+          <a class='text-blue-600 mavenLinkBold hover:bg-blue-50' href='Programming/Object%20Oriented%20Programming.html'>
+            Object Oriented Programming
+          </a>
+          
+            <div class='mb-4 overflow-auto text-sm text-gray-500'>
+  
+    <div class='pl-2 mt-2 border-l-2 border-blue-200 hover:border-blue-500'>
+      <div><a href='Programming/Functional%20Programming.html' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>Functional Programming</a></div>
+    </div>
+  
+</div>
+          
+        </li>
+      
+        <li>
+          <a class='text-blue-600 mavenLinkBold hover:bg-blue-50' href='Programming/OOP%20Deconstruction.html'>
+            OOP Deconstruction
+          </a>
+          
+            <div class='mb-4 overflow-auto text-sm text-gray-500'>
+  
+    <div class='pl-2 mt-2 border-l-2 border-blue-200 hover:border-blue-500'>
+      <div><a href='Programming/Functional%20Programming.html' class='text-gray-600 font-bold hover:bg-gray-50' data-wikilink-type='WikiLinkNormal'>Functional Programming</a></div>
+    </div>
+  
+</div>
+          
+        </li>
+      
+    </ul>
+  </div>
+
+            </div>
+            
+  <section class='flex flex-wrap items-end justify-center my-4 space-x-2 space-y-2 font-mono text-sm'>
+    
+      <!-- FIXME: The use of -/tags is wrong, because we should use routeUrl using Ema's encoder 
+        Perhaps Emanote should inject tagMetas with urls.
+      -->
+      <a title='Tag' class='px-1 bg-gray-100 rounded hover:bg-gray-50 hover:text-blue-500' href='-/tags/programming.html'>
+        <!-- DoNotFormat -->
+        #programming
+        <!-- DoNotFormat -->
+      </a>
+    
+  </section>
+
+            <!-- What goes in this file will at the very end of the main div -->
+          </main>
+        </div>
+      </div>
+      <footer class='flex items-center justify-center mt-2 mb-8 space-x-4 text-center text-gray-800'>
+  
+  <div>
+    <a href='' title='Go to Home page'>
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-6 h-6 hover:text-blue-700' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6'></path>
+      </svg>
+    </a>
+  </div>
+  <div>
+    <a href='-/all.html' title='View Index'>
+      <svg class='w-6 h-6 hover:text-blue-700' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M4 8V4m0 0h4M4 4l5 5m11-1V4m0 0h-4m4 0l-5 5M4 16v4m0 0h4m-4 0l5-5m11 5l-5-5m5 5v-4m0 4h-4'>
+        </path>
+      </svg>
+    </a>
+  </div>
+  <div>
+    <a href='https://emanote.srid.ca' target='_blank' title='Generated by Emanote 1.0.3.1'>
+      <img class='w-6 h-6 hover:text-blue-700' src='_emanote-static/emanote-logo.svg' />
+    </a>
+  </div>
+  <div>
+    <a href='-/tags.html' title='View tags'>
+      <svg class='w-6 h-6 hover:text-blue-700' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z'>
+        </path>
+      </svg>
+    </a>
+  </div>
+  <div>
+    <a href='-/tasks.html' title='View tasks'>
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-6 h-6 hover:text-blue-700' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z'></path>
+      </svg>
+    </a>
+  </div>
+</footer>
+    </div>
+  
+  <div id='stork-search-container' class='hidden fixed w-screen h-screen inset-0 backdrop-filter backdrop-blur-sm'>
+  <div class='fixed w-screen h-screen inset-0' onclick='window.emanote.stork.toggleSearch()'></div>
+
+  <div class='container mx-auto p-10 mt-10'>
+    <div class='stork-wrapper-flat container mx-auto'>
+      <input id='stork-search-input' data-stork='emanote-search' class='stork-input' placeholder='Search (Ctrl+K) ...' />
+      <div data-stork='emanote-search-output' class='stork-output'></div>
+    </div>
+  </div>
+</div>
+  
+    
+  
+</body>
+
+</html>

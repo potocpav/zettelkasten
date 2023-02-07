@@ -5,31 +5,34 @@
   <meta charset='UTF-8' />
   <meta name='viewport' content='width=device-width, initial-scale=1' />
   <title>
-    Slug – Emanote Template
+    Bugs I Introduced – Emanote Template
   </title>
   
     
-      <meta property='og:description' content='By default the filesystem path is used to determine the note URL. You can override this using the slug frontmatter metadata.' />
+      <meta property='og:description' content='While programming in Haskell. Haskell has a strong type system which prevents many bugs. These are the bugs that I managed to create in spite of that.' />
       <meta property='og:site_name' content='Emanote Template' />
       <meta property='og:image' content />
       <meta property='og:type' content='website' />
-      <meta property='og:title' content='Slug' />
+      <meta property='og:title' content='Bugs I Introduced' />
     
     
       <base href='/zettelkasten/' />
       <link href='favicon.svg' rel='icon' />
     
-    <!-- highlight.js -->
-<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/hybrid.min.css' />
-<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js'></script>
-<!-- Include languages that Emanote itself uses -->
-<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/haskell.min.js'></script>
-<script src='https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/languages/nix.min.js'></script>
-<script>hljs.highlightAll();</script>
+    <script>
+  window.MathJax = {
+    startup: {
+      ready: () => {
+        MathJax.startup.defaultReady();
+      }
+    }
+  };
+</script>
+<script async id='MathJax-script' src='https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js'></script>
 
 
   
-  <link href='tailwind.css?instanceId=a243616a-d4ac-461c-a041-0635931a403d' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=8a883426-914d-4fd4-afc0-5755ff52e54c' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -254,7 +257,7 @@
           
             <li class='inline-flex items-center'>
               <a class='px-1 font-bold' href=''>
-                Emanote Template
+                Personal notes
               </a>
               <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
                 <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
@@ -262,8 +265,8 @@
             </li>
           
             <li class='inline-flex items-center'>
-              <a class='px-1 font-bold' href='Tutorials.html'>
-                Tutorials
+              <a class='px-1 font-bold' href='Programming.html'>
+                Programming
               </a>
               <svg fill='currentColor' viewBox='0 0 20 20' class='w-auto h-5 text-gray-400'>
                 <path fill-rule='evenodd' d='M7.293 14.707a1 1 0 010-1.414L10.586 10 7.293 6.707a1 1 0 011.414-1.414l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414 0z' clip-rule='evenodd'></path>
@@ -340,14 +343,12 @@
               <!-- Variable bindings for this tree-->
   
     
-      
-    
-    
+  
 
 
 
   
-
+  
 
 <!-- Rendering of this tree -->
 <div class='pl-2'>
@@ -355,24 +356,104 @@
   <div class='flex items-center my-2 space-x-2 justify-left'>
     
     
-      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
-        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
-        </path>
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 flex-shrink-0 inline text-gray-500' viewBox='0 0 20 20' fill='currentColor'>
+        <path d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'></path>
       </svg>
     
   
-    <a class='hover:underline truncate' title='GitHub Pages' href='github-pages.html'>
-      GitHub Pages
+    <a class='hover:underline truncate' title='Misc' href='Misc.html'>
+      Misc
     </a>
     
       
+        <span class='text-gray-300' title='5 children inside'>
+          5
+        </span>
+      
+    
   </div>
 
   <!-- Node's children forest, displayed only on active trees
     TODO: Use <details> to toggle visibility?
   -->
   
+</div>
+            
+              <!-- Variable bindings for this tree-->
+  
     
+  
+
+
+
+  
+  
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 flex-shrink-0 inline text-gray-500' viewBox='0 0 20 20' fill='currentColor'>
+        <path d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'></path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Music' href='Music.html'>
+      Music
+    </a>
+    
+      
+        <span class='text-gray-300' title='3 children inside'>
+          3
+        </span>
+      
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+            
+              <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+  
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg xmlns='http://www.w3.org/2000/svg' class='w-4 h-4 flex-shrink-0 inline text-gray-500' viewBox='0 0 20 20' fill='currentColor'>
+        <path d='M2 6a2 2 0 012-2h5l2 2h5a2 2 0 012 2v6a2 2 0 01-2 2H4a2 2 0 01-2-2V6z'></path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Problems' href='Problems.html'>
+      Problems
+    </a>
+    
+      
+        <span class='text-gray-300' title='6 children inside'>
+          6
+        </span>
+      
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
   
 </div>
             
@@ -400,8 +481,8 @@
       </svg>
       
   
-    <a class='font-bold hover:underline truncate' title='Tutorials' href='Tutorials.html'>
-      Tutorials
+    <a class='font-bold hover:underline truncate' title='Programming' href='Programming.html'>
+      Programming
     </a>
     
       
@@ -411,6 +492,117 @@
     TODO: Use <details> to toggle visibility?
   -->
   
+    
+      <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        </path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Functional Programming' href='Programming/Functional%20Programming.html'>
+      Functional Programming
+    </a>
+    
+      
+        
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+    
+      <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        </path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='OOP Deconstruction' href='Programming/OOP%20Deconstruction.html'>
+      OOP Deconstruction
+    </a>
+    
+      
+        
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
+    
+      <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        </path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Object Oriented Programming' href='Programming/Object%20Oriented%20Programming.html'>
+      Object Oriented Programming
+    </a>
+    
+      
+        
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
+  
+</div>
     
       <!-- Variable bindings for this tree-->
   
@@ -432,8 +624,8 @@
       </svg>
       
   
-    <a class='font-bold text-blue-600 hover:underline truncate' title='Slug' href='Tutorials/Slug.html'>
-      Slug
+    <a class='font-bold text-blue-600 hover:underline truncate' title='Bugs I Introduced' href='Programming/Programming%20Bugs.html'>
+      Bugs I Introduced
     </a>
     
       
@@ -444,6 +636,43 @@
   -->
   
     
+  
+</div>
+    
+      <!-- Variable bindings for this tree-->
+  
+    
+  
+
+
+
+  
+
+
+<!-- Rendering of this tree -->
+<div class='pl-2'>
+  <!-- Node's rootLabel-->
+  <div class='flex items-center my-2 space-x-2 justify-left'>
+    
+    
+      <svg class='w-4 h-4 flex-shrink-0 inline' fill='none' stroke='currentColor' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'>
+        <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M7 21h10a2 2 0 002-2V9.414a1 1 0 00-.293-.707l-5.414-5.414A1 1 0 0012.586 3H7a2 2 0 00-2 2v14a2 2 0 002 2z'>
+        </path>
+      </svg>
+    
+  
+    <a class='hover:underline truncate' title='Programming Ideas' href='Programming/Programming%20Ideas.html'>
+      Programming Ideas
+    </a>
+    
+      
+        
+    
+  </div>
+
+  <!-- Node's children forest, displayed only on active trees
+    TODO: Use <details> to toggle visibility?
+  -->
   
 </div>
     
@@ -459,47 +688,61 @@
           <main class='px-4 py-4'>
             <h1 class='flex items-end justify-center mb-4 p-3 bg-blue-100 text-5xl font-extrabold text-black rounded'>
   <a class='z-40 tracking-tighter '>
-    Slug
+    Bugs I Introduced
   </a>
 </h1>
             <article class='overflow-auto'>
   <!-- What goes in this file will appear on top of note body-->
   
     <p class='mb-3'>
-      By default the filesystem path is used to determine the note URL. You can override this using the <code class='py-0.5 px-0.5 bg-gray-100'>slug</code> frontmatter metadata.
+      While programming in Haskell. Haskell has a strong type system which prevents many bugs. These are the bugs that I managed to create in spite of that.
     </p>
-  <h2 id='overriding-the-url' class='inline-block mt-6 mb-4 text-4xl font-bold text-gray-700 border-b-2'>Overriding the URL</h2>
+  
     <p class='mb-3'>
-      For example,
+      I’m not discussing the exact bugs, but rather their causes.
     </p>
   
     <ul class='my-3 ml-6 space-y-1 list-disc'>
       
         <li>
-          Source: <a href='https://raw.githubusercontent.com/srid/srid/master/free/Actualism%20Method.md' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://raw.githubusercontent.com/srid/srid/master/free/Actualism%20Method.md</a>
+          
+    <p class='mb-3'>
+      This bug was a problem in my understanding of specification. The bug would’ve been caught by 3 tests, but these were also written according to the bad specification.
+    </p>
+  
         </li>
       
         <li>
-          Rendered: <a href='https://srid.ca/method' class='text-blue-600 hover:underline' data-linkicon='external' target='_blank' rel='noopener'>https://srid.ca/method</a>
+          
+    <p class='mb-3'>
+      Two different representations for zero. Only one of them was properly tested. A bug in handling the other one was therefore not detected. The two representations were:
+    </p>
+  
+    <ul class='my-3 ml-6 space-y-1 list-decimal list-inside'>
+      
+        <li>
+          A key missing in a <code class='py-0.5 px-0.5 bg-gray-100'>Map Int _</code>,
+        </li>
+      
+        <li>
+          A zero key in the map.
         </li>
       
     </ul>
   
     <p class='mb-3'>
-      Notice that in the source, we see:
+      A solution would’ve been to use a <code class='py-0.5 px-0.5 bg-gray-100'>TotalMap</code> instead, which models the logic more tightly.
     </p>
-  <div class='py-0.5 mb-3 text-sm'><pre><code class='yaml language-yaml'>---
-slug: method
----</code></pre></div>
-    <p class='mb-3'>
-      This makes Emantoe use <code class='py-0.5 px-0.5 bg-gray-100'>/method</code> as the URL path for this note. Without this, by default, Emanote would use <code class='py-0.5 px-0.5 bg-gray-100'>/free/Actualism%20Method</code>.
-    </p>
+  
+        </li>
+      
+    </ul>
   
 
   <div class='flex items-center justify-center mt-2'>
   
     
-      <a class='text-gray-300 hover:text-blue-600 text-sm' title='Edit this page on GitHub' href='https://github.com/potocpav/zettelkasten/edit/master/Tutorials/Slug.md'>
+      <a class='text-gray-300 hover:text-blue-600 text-sm' title='Edit this page on GitHub' href='https://github.com/potocpav/zettelkasten/edit/master/Programming/Programming Bugs.md'>
         <svg xmlns='http://www.w3.org/2000/svg' class='h-6 w-6' fill='none' viewBox='0 0 24 24' stroke='currentColor'>
           <path stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z'></path>
         </svg>
@@ -514,6 +757,15 @@ slug: method
             </div>
             
   <section class='flex flex-wrap items-end justify-center my-4 space-x-2 space-y-2 font-mono text-sm'>
+    
+      <!-- FIXME: The use of -/tags is wrong, because we should use routeUrl using Ema's encoder 
+        Perhaps Emanote should inject tagMetas with urls.
+      -->
+      <a title='Tag' class='px-1 bg-gray-100 rounded hover:bg-gray-50 hover:text-blue-500' href='-/tags/programming.html'>
+        <!-- DoNotFormat -->
+        #programming
+        <!-- DoNotFormat -->
+      </a>
     
   </section>
 
