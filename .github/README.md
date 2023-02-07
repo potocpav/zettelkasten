@@ -1,3 +1,5 @@
+Web: https://potocpav.github.io/zettelkasten/
+
 # emanote-template
 
 A template repository to create your own Markdown-based [Emanote](https://github.com/srid/emanote) notebook with [Visual Studio Code](https://code.visualstudio.com/) support, as well as to publish it to GitHub Pages.
