@@ -3,6 +3,8 @@
 
 page:
   siteTitle: Emanote Template
+  headHtml: |
+    <snippet var="js.mathjax" />
 
 template:
   # theme: red
@@ -18,7 +20,7 @@ template:
   #     containerClass: container mx-auto max-w-screen-lg
 
   sidebar:
-    collapsed: false
+    collapsed: true
 
   # If you are hosting on GitLab Pages, you may want to remove this.
   urlStrategy: pretty
