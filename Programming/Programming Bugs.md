@@ -10,11 +10,13 @@ While programming in Haskell. Haskell has a strong type system which prevents ma
 
 I'm not discussing the exact bugs, but rather their causes.
 
-* This bug was a problem in my understanding of specification. The bug would've been caught by 3 tests, but these were also written according to the bad specification.
+* One bug was caused by using two different representations for zero. Only one of them was properly tested. A bug in handling the other one was therefore not detected. The two representations were:
 
-* Two different representations for zero. Only one of them was properly tested. A bug in handling the other one was therefore not detected. The two representations were:
-
-  1. A key missing in a `Map Int _`,
-  2. A zero key in the map.
+  1. A missing key in a `Map Int _`,
+  2. A zero key in the same map.
 
   A solution would've been to use a `TotalMap` instead, which models the logic more tightly.
+
+* Another bug was a problem in my understanding of specification. The bug would've been caught by 3 tests, but these were also written according to the bad specification.
+
+* Another bug was caused by a list being produced in a reversed order by a recursive function. This was not very obvious from the function definition. It sneaked through the tests as well, and landed in production.
