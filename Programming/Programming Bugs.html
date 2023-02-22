@@ -32,7 +32,7 @@
 
 
   
-  <link href='tailwind.css?instanceId=145b3604-da03-439c-b078-56a59e2b7271' rel='stylesheet' type='text/css' />
+  <link href='tailwind.css?instanceId=3c3a71d9-4dfe-401f-990d-964950560626' rel='stylesheet' type='text/css' />
 
   <style>
     /* Heist error element */
@@ -707,7 +707,23 @@
         <li>
           
     <p class='mb-3'>
-      This bug was a problem in my understanding of specification. The bug would’ve been caught by 3 tests, but these were also written according to the bad specification.
+      One bug was caused by using two different representations for zero. Only one of them was properly tested. A bug in handling the other one was therefore not detected. The two representations were:
+    </p>
+  
+    <ul class='my-3 ml-6 space-y-1 list-decimal list-inside'>
+      
+        <li>
+          A missing key in a <code class='py-0.5 px-0.5 bg-gray-100'>Map Int _</code>,
+        </li>
+      
+        <li>
+          A zero key in the same map.
+        </li>
+      
+    </ul>
+  
+    <p class='mb-3'>
+      A solution would’ve been to use a <code class='py-0.5 px-0.5 bg-gray-100'>TotalMap</code> instead, which models the logic more tightly.
     </p>
   
         </li>
@@ -715,23 +731,15 @@
         <li>
           
     <p class='mb-3'>
-      Two different representations for zero. Only one of them was properly tested. A bug in handling the other one was therefore not detected. The two representations were:
+      Another bug was a problem in my understanding of specification. The bug would’ve been caught by 3 tests, but these were also written according to the bad specification.
     </p>
   
-    <ul class='my-3 ml-6 space-y-1 list-decimal list-inside'>
-      
-        <li>
-          A key missing in a <code class='py-0.5 px-0.5 bg-gray-100'>Map Int _</code>,
         </li>
       
         <li>
-          A zero key in the map.
-        </li>
-      
-    </ul>
-  
+          
     <p class='mb-3'>
-      A solution would’ve been to use a <code class='py-0.5 px-0.5 bg-gray-100'>TotalMap</code> instead, which models the logic more tightly.
+      Another bug was caused by a list being produced in a reversed order by a recursive function. This was not very obvious from the function definition. It sneaked through the tests as well, and landed in production.
     </p>
   
         </li>
