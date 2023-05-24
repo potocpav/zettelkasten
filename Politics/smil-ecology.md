@@ -176,7 +176,7 @@ Může říct jakékoliv datum. Do roku 2060 zbývá 40 let. Před 20 lety se Vl
 
 To může být. Německu stálo už půl bilionu dolarů, aby dosáhli toho, čeho Amerika dosáhla zadarmo. Amerika relativně dekarbonizovala tak, že zavřela staré elektrárny na uhlí a místo toho vyrábí elektřinu plynovými turbínami. ==Snížila tak produkci CO2 asi o osm procent. Německo taky zhruba o tolik, ale za obrovské peníze, protože všude stavěli větrníky.==[^122]
 
-Když začala Energiewende, volali mi z New York Times, abych komentoval první největší německou sluneční elektrárnu nedaleko Norimberka. V Německu bývá i v létě zataženo a prší. ==Když postavíte solární elektrárnu v Arizoně, pracuje 35 procent roku. Na Sicílii 32 procent. Ale v Německu má solární elektrárna průměrný kapacitní faktor 11 procent, plných 89 procent roku nepracuje.====[^123] To je ten slavný Germany Engineering?
+Když začala Energiewende, volali mi z New York Times, abych komentoval první největší německou sluneční elektrárnu nedaleko Norimberka. V Německu bývá i v létě zataženo a prší. ==Když postavíte solární elektrárnu v Arizoně, pracuje 35 procent roku. Na Sicílii 32 procent. Ale v Německu má solární elektrárna průměrný kapacitní faktor 11 procent, plných 89 procent roku nepracuje.==[^123] To je ten slavný Germany Engineering?
 
 ==Firma Siemens někdy v roce 2008 publikovala interní zprávu, která se později dostala na veřejnost.==[^124] Vypočítali v ní, že kdyby se německá solární kapacita postavila v Itálii a propojila vysokonapěťovým vedením s Německem, hodně by se ušetřilo. Amerika staví solární elektrárny v Arizoně, v Kalifornii, v Mexiku. Evropa by je měla stavět v jižním Portugalsku, jižním Španělsku a v jižní Itálii. Ne u Berlína.
 
