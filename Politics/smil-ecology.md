@@ -1,5 +1,7 @@
 # Profesor Smil rozbíjí český sen: „Žádná jaderná energie tu nebude.“
 
+*https://www.seznamzpravy.cz/clanek/ekonomika-byznys-rozhovory-profesor-smil-rozbiji-cesky-sen-zadna-jaderna-energie-tu-nebude-231268*
+
 > Emeritní profesor University of Manitoba Václav Smil, jehož knihy doporučuje zakladatel Microsoftu Bill Gates i majitel Seznamu Ivo Lukačovič, bourá v rozhovoru pro SZ Byznys iluze o evropském Green Dealu.
 >
 > „Všechno, co Evropa pro rychlou dekarbonizaci zatím udělala, nemá žádnou cenu, co se týče klimatu,“ říká.
@@ -17,8 +19,10 @@
 
 **Ve své poslední česky vydané knížce Jak svět skutečně funguje se zabýváte vnímáním rizika. Jak vysoké je pro nás riziko plynoucí z klimatické změny? Má „klimatický žal“ mladé generace racionální důvod?**
 
-Lidi neumí mnoho věcí a ze všeho nejméně vyhodnocovat riziko. Zeptejte se jich, ==jaké je riziko, že během příštích 20 let mladý člověk umře na klimatickou změnu, a jaké je riziko, že umře na drogy? V Americe dnes nejvíc mladých lidí zemře na předávkování fentanylem.==[^11] Donedávna byly v USA nejčastější příčinou úmrtí mladých autonehody, ==dnes je pro ně celosvětově hlavním nebezpečím fentanyl==[^12]. Přitom z Číny a Mexika do světa proudí tuny fentanylu a ==společnost to moc nevzrušuje==[^13]. ==Zato se bojí, že když do roku 2040 stoupne globální teplota, každý umře.==[^14]
+Lidi neumí mnoho věcí a ze všeho nejméně vyhodnocovat riziko. Zeptejte se jich, ==jaké je riziko, že během příštích 20 let mladý člověk umře na klimatickou změnu==[^10], a ==jaké je riziko, že umře na drogy? V Americe dnes nejvíc mladých lidí zemře na předávkování fentanylem.==[^11] Donedávna byly v USA nejčastější příčinou úmrtí mladých autonehody, ==dnes je pro ně celosvětově hlavním nebezpečím fentanyl==[^12]. Přitom z Číny a Mexika do světa proudí tuny fentanylu a ==společnost to moc nevzrušuje==[^13]. ==Zato se bojí, že když do roku 2040 stoupne globální teplota, každý umře.==[^14]
 
+
+[^10]: 30-130M lidí bude navíc v extrémní chudobě kvůli změně klimatu v r. 2030. "Sustainable pathways scenario" by zabránilo ~1M úmrtí ročně kvůli znečistění ovzduší do r. 2040. https://en.wikipedia.org/wiki/Effects_of_climate_change_on_human_health
 [^11]: Nikdo netvrdí že mladí lidé v Americe budou umírat na klimatickou změnu během příštích 20 let. To se projeví později, a bohaté společnosti budou méně zasaženy než chudé společnosti.
 [^12]: Slovo "celosvětově" je zde asi navíc. Celosvětově fentanyl není významné riziko, většina mladých umírá na úrazy, násilí, sebevraždy, nemoci a porodní komplikace.
 [^13]: Fentanyl je dočasný a lokální problém. A samozřejmě lidi vzrušuje.
