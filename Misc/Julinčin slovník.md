@@ -4,27 +4,43 @@
 Julinčina | Čeština
 ---|---
 Abuči | autobus
-Žabiči, žába | žába
-Miči | mlíčko
-Neci | nechci
-Mimiči | miminko
-Buči, bubuči | bublifuk
-Sama | sama
-Moči | motorka, odrážedlo
-Héma | helma
-Oveči | ovečky
-Doby | dobrý
-Boty | boty
-Tava | káva
-Juiči | Julinka
-Máma, mamí | máma, mami
-Táta | táta
+Auto | auto
 Babiči | babička
-Jáci jáci | já chci
+Boty | boty
+Bouije | brambory
+Bubuši | autobus
+Buči, bubuči | bublifuk
+Bác | bác
 Další | další
-Tucija | tučňáci
-Myš | myš
-Houpy | houpy
+Doby | dobrý
+Fuj | fuj
 Hop | hop
-Taviči | travička
+Hotovo | hotovo
+Houpy | houpy
+Héma | helma
+Juiči | Julinka
+Jáci jáci | já chci
+Mimiči | miminko
+Miči | mlíčko
+Moči | motorka, odrážedlo
+Myš | myš
+Máma, mamí | máma, mami
+Neci | nechci
+Nos | nos
+Nuiči | nudličky
+Oveči | ovečky
+Sama | sama
+Si dva si dva | tři dva jedna
 Tadlo | letadlo
+Tava | káva
+Taviči | travička
+Toutá | kouká
+Točija | kočička
+Tucija | tučňáci
+Tuli tuli | tuli tuli
+Táta | táta
+Vláči | vláček
+Zebiči | zebřička
+Ťapi | ťapi
+Ťapi ťapi | ťapi ťapi
+Žabiči, žába | žába
