@@ -8,10 +8,11 @@ Auto | auto
 Babiči | babička
 Boty | boty
 Bouije | brambory
-Bubuši | autobus
+Bubuši, abuši | autobus
 Buči, bubuči | bublifuk
 Bác | bác
 Další | další
+Domiči | domeček
 Doby | dobrý
 Fuj | fuj
 Hop | hop
