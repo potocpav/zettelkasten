@@ -1,11 +1,12 @@
 {
   nixConfig = {
-    extra-substituters = "https://srid.cachix.org";
-    extra-trusted-public-keys = "srid.cachix.org-1:3clnql5gjbJNEvhA/WQp7nrZlBptwpXnUk6JAv8aB2M=";
+    extra-substituters = "https://cache.garnix.io";
+    extra-trusted-public-keys = "cache.garnix.io:CTFPyKSLcx5RMJKfLo5EEPUObbA78b0YQ2DTCJXqr9g=";
   };
 
   inputs = {
     emanote.url = "github:srid/emanote";
+    emanote.inputs.emanote-template.follows = "";
     nixpkgs.follows = "emanote/nixpkgs";
     flake-parts.follows = "emanote/flake-parts";
   };
@@ -19,8 +20,7 @@
           # By default, the 'emanote' flake input is used.
           # package = inputs.emanote.packages.${system}.default;
           sites."default" = {
-            layers = [ ./. ];
-            layersString = [ "." ];
+            layers = [{ path = ./.; pathString = "."; }];
             # port = 8080;
             baseUrl = "/zettelkasten/"; # Change to "/" (or remove it entirely) if using CNAME
             # prettyUrls = true;
