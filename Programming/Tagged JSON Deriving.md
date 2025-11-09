@@ -10,26 +10,48 @@ pre { background: #eee; border: 1px solid #ddd; padding: 0.5rem; border-radius: 
 table { width: 100%; }
 </style>
 
-
-Generic JSON deriving library developed for Flow: `Scrive.Aeson.Generic` in [scrive-commons](https://github.com/scrive/scrive-commons/tree/master/scrive-aeson/src/Scrive/Aeson/Generic).
+Haskell Generic JSON deriving library developed for Flow: `Scrive.Aeson.Generic` in [scrive-commons](https://github.com/scrive/scrive-commons/tree/master/scrive-aeson/src/Scrive/Aeson/Generic).
 
 ## Motivation
 
-TODO
+A generic Aeson deriving library which:
+
+* Works naturally with sum types
+* Allows encoding existing and new APIs with no manual instances
+  - properties besides tags in Objects
+* Allows storage in the database (good backwards compatibility of encoding)
+* Provides good ToSchema instances
 
 ## Haskell Structures
 
 <table><tr>
-<td>Product type</td>
+
+<th>Name</th>
+<th>Haskell</th>
+<th>Aeson</th>
+<th>tagged-deriving</th>
+
+</tr><tr>
+
+<td>Product type (with named fields)</td>
 <td>
 
 ```haskell
-data Person = MkPerson
+data Human = MkHuman
   { name :: Text
-  , email :: Text
+  , email :: Maybe Text
   }
   deriving stock (Generic)
-  deriving (FromJSON, ToKeyMap, ToJSON) via GUntaggedJSON Person
+  deriving (FromJSON, ToKeyMap, ToJSON) via GUntaggedJSON Human
+```
+
+</td><td>
+
+```json
+{
+  "name": "Pavel",
+  "email": "pavel.potocek@scrive.com"
+}
 ```
 
 </td><td>
@@ -42,6 +64,49 @@ data Person = MkPerson
 ```
 
 </td>
+
+</tr><tr>
+<td>Product type (with unnamed fields)</td>
+<td>
+
+```haskell
+data Person = Person Name Hobbies
+  deriving stock (Generic)
+  deriving (FromJSON, ToKeyMap, ToJSON) via GUntaggedJSON Person
+
+
+data Name = Name
+  { name :: Text
+  }
+
+data Hobbies = Hobbies
+  { hobbies :: [Text]
+  }
+```
+
+</td><td>
+
+```json
+[
+  { 
+    "name": "Pavel",
+  },
+  { 
+    "hobbies": []
+  }
+]
+```
+
+</td><td>
+
+```json
+{
+  "name": "Pavel",
+  "hobbies": []
+}
+```
+
+</td>
 </tr>
 
 <td>Sum type</td>
@@ -49,13 +114,29 @@ data Person = MkPerson
 
 ```haskell
 data Animal
-  = Human Person
+  = Human Human
   | Cat
   | Dog
   deriving stock (Generic)
-  deriving (FromJSON, ToJSON) via GTaggedJSON "species" Person
+  deriving (FromJSON, ToJSON) via GTaggedJSON "species" Human
 ```
 
+</td><td>
+
+```json
+{
+  "tag": "human",
+  "contents": {
+    "email": "pavel.potocek@scrive.com"
+  }
+}
+```
+
+```json
+{
+  "tag": "cat"
+}
+```
 </td><td>
 
 ```json
@@ -94,6 +175,10 @@ data Animal
 
 no serialization
 
+</td><td>
+
+?
+
 </td>
 </tr>
 
@@ -123,6 +208,7 @@ data Cat = MkCat
 
 </td>
 </tr>
+<tr>
 
 <td>Tagged Newtype</td>
 <td>
@@ -142,6 +228,27 @@ data Cat = MkCat
   "species": "cat",
   "number_of_legs": 2
 }
+```
+
+</td>
+</tr>
+<tr>
+
+<td>Product type with unnamed fields</td>
+<td>
+
+```haskell
+data Cat = Cat Int Text Bool
+  deriving stock (Generic)
+  deriving (FromJSON, ToJSON) via GTaggedJSON "species" Cat
+```
+
+</td><td>
+
+Can't serialize. Aeson-deriving would produce a heterogeneous list:
+
+```json
+[5, "abcd", True]
 ```
 
 </td>
@@ -312,31 +419,10 @@ newtype CustomTemplate = CustomTemplate { text :: Text }
 
 </td></tr></table>
 
-## ToKeyMap
-
-TODO: explain why `ToKeyMap` is necessary, and `ToJSON` is not enough
-
-## Missing features
-
-Serialization of enums into strings
-
-TODO: clean up the example
-
-```haskell
-data Boolean
-  = True
-  | False
-  deriving stock (Generic)
-  deriving (FromJSON, ToJSON) via GenericFlowJSON Boolean
-```
-
-## Alternatives
-
-Aeson generic deriving
-
-TODO
 
 ## Use-cases
+
+**In Flow, we use TaggedJSON for almost all serializations.**
 
 APIs
 
@@ -346,6 +432,8 @@ Database
 
 - Backwards compatible representation in regards to adding sum constructors, and adding `Maybe` fields
 
-In Flow, we use TaggedJSON for almost all serializations.
+## Downsides
+
+* Your types are informed by the serialization. You sometimes need to do a bit of type juggling. 
 
 ![alt text](search-sshot.png)
